@@ -1,3 +1,9 @@
+"""
+GraVE Documentation
+-------------------
+
+"""
+
 import networkx as nx
 
 toy_network = nx.barbell_graph(100, 10)

@@ -21,6 +21,7 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import sphinx_gallery
 
 # -- General configuration ------------------------------------------------
 
@@ -31,7 +32,17 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = []
+extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.autosummary',
+    'sphinx.ext.doctest',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.todo',
+    'sphinx.ext.coverage',
+    'sphinx.ext.mathjax',
+    'sphinx_gallery.gen_gallery',
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -69,7 +80,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.ipynb_checkpoints']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -169,4 +180,16 @@ texinfo_documents = [
 ]
 
 
+# -- Sphinx Gallery ------------------------------------------------------
 
+from sphinx_gallery.sorting import ExplicitOrder, NumberOfCodeLinesSortKey
+examples_dirs = ['../examples']
+gallery_dirs = ['gallery']
+
+
+sphinx_gallery_conf = {
+    'examples_dirs': examples_dirs,
+    'gallery_dirs': gallery_dirs,
+    'find_mayavi_figures': False,
+    'backreferences_dir': False
+}

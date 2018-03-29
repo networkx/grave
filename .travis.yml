@@ -58,6 +58,9 @@ script:
 #    fi
 #  - source tools/travis/script.sh
   - python setup.py test
+  - cd doc
+  - make html-noplot
+  - make html -j 2
 
 after_success:
 #  - if [[ "${REPORT_COVERAGE}" == 1 ]]; then
@@ -66,6 +69,7 @@ after_success:
 #  - if [[ "${BUILD_DOCS}" == 1 && "${DEPLOY_DOCS}" == 1 ]]; then
 #      source tools/travis/deploy_docs.sh;
 #    fi
+  - make ht
 
 notifications:
   email: false
