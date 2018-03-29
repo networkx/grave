@@ -16,3 +16,4 @@ def degree_colorer(node_attributes):
 
 fig, ax = plt.subplots()
 grave.plot_network(graph, ax=ax, node_style=degree_colorer)
+plt.show()

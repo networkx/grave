@@ -1,11 +1,14 @@
 import networkx as nx
+from networkx.algorithms.approximation.dominating_set import min_weighted_dominating_set
+import matplotlib.pyplot as plt
+from grave import grave
 
-toy_network = nx.barbell_graph(100, 10)
+toy_network = nx.barbell_graph(10, 10)
 
-dom_set = nx.min_weight_dominating_set(toy_network)
+dom_set = min_weighted_dominating_set(toy_network)
 
-for node, node_attributes in toy_network.nodes(data=True):
-    node['is_dominator'] = True if node in dom_set else False
+for node, node_attrs in toy_network.nodes(data=True):
+    node_attrs['is_dominator'] = True if node in dom_set else False
 
 
 def color_dominators(node_attributes):
@@ -14,6 +17,7 @@ def color_dominators(node_attributes):
     else:
         return {'color': 'gray'}
 
-
-plot_the_graph(toy_network,
-               node_style=color_dominators)
+fig, ax = plt.subplots()
+grave.plot_network(toy_network,
+                   node_style=color_dominators)
+plt.show()
