@@ -103,3 +103,6 @@ ENV/
 
 # vim tmp files
 **/*.swp
+
+# pytest
+.pytest_cache/
