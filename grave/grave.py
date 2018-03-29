@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import networkx as nx
 from ._nx_pylab import draw_networkx_nodes, draw_networkx_edges
 from functools import wraps
@@ -8,7 +7,7 @@ def _ensure_ax(func):
     @wraps(func)
     def inner(*args, **kwargs):
         if 'ax' not in kwargs:
-            import maptlotlib.pyplot as plt
+            import matplotlib.pyplot as plt
             kwargs['ax'] = plt.gca()
         return func(*args, **kwargs)
 
