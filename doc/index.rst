@@ -10,6 +10,7 @@ Welcome to GraVE's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   notes
 
 
 Indices and tables
