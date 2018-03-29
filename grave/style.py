@@ -6,6 +6,7 @@ _VALID_EDGE_STYLE = []
 
 _ALL_STYLE_KEYS = _VALID_NODE_STYLE + _VALID_EDGE_STYLE
 
+
 def style_merger(*funcs):
     def inner(node_attributes):
         out = {}
