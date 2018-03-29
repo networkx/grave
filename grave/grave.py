@@ -1,7 +1,10 @@
 import networkx as nx
 from functools import wraps
 import numpy as np
-from .style import generate_node_styles, generate_edge_styles
+from .style import (generate_node_styles,
+                    generate_edge_styles,
+                    _VALID_NODE_STYLE,
+                    _VALID_EDGE_STYLE)
 from matplotlib.collections import LineCollection
 
 
