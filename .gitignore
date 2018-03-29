@@ -100,3 +100,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# vim tmp files
+**/*.swp
