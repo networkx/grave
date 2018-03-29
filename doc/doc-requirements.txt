@@ -1,3 +1,4 @@
 sphinx
-sphinx-gallery
+sphinx-galleryg
 pillow
+-r ../requirements.txt
