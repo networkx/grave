@@ -24,15 +24,15 @@ From discussions with Nelle Varoquex, Aric, and Dan Shult
 From discussion with large group of network practitioners
 ---------------------------------------------------------
 
- - need "seaborn for networks"
-   - heursitics for edge style
- - also want "seaborn for network statistics"
- - look at igraph
-   - have lots of layout engines
- - people tend to use different plots for data exploration vs publication
- - functions for different on graph size
- - input to layout engine should be flexible
- - provide way to go to the bottom!
+- need "seaborn for networks"
+  - heursitics for edge style
+- also want "seaborn for network statistics"
+- look at igraph
+  - have lots of layout engines
+- people tend to use different plots for data exploration vs publication
+- functions for different on graph size
+- input to layout engine should be flexible
+- provide way to go to the bottom!
 
 ball and edge
 ~~~~~~~~~~~~~
@@ -68,11 +68,11 @@ sankey / flow
 initial target cases
 --------------------
 
- - re-make jarod's slides
-   - small (25 nodes)
- - a 1000 node random graph
-   - no labels, transparency, color per edge
- - A tree of some sort
- - splicing graph
- - neural networks
- - some flow network
+- re-make jarod's slides
+  - small (25 nodes)
+- a 1000 node random graph
+  - no labels, transparency, color per edge
+- A tree of some sort
+- splicing graph
+- neural networks
+- some flow network
