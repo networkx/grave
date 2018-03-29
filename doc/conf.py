@@ -22,6 +22,7 @@
 # sys.path.insert(0, os.path.abspath('.'))
 
 import sphinx_gallery
+import sys
 
 # -- General configuration ------------------------------------------------
 
@@ -42,7 +43,10 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
     'sphinx_gallery.gen_gallery',
+    'numpydoc'
 ]
+
+autosummary_generate = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -191,5 +195,19 @@ sphinx_gallery_conf = {
     'examples_dirs': examples_dirs,
     'gallery_dirs': gallery_dirs,
     'find_mayavi_figures': False,
-    'backreferences_dir': False
+    'backreferences_dir': "generated/backreferences",
+    'doc_module': ('networkx', 'grave'),
+}
+
+# -- Other Options ------------------------------------------------------
+
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/{.major}'.format(sys.version_info), None),
+    'numpy': ('https://docs.scipy.org/doc/numpy/', None),
+    'scipy': ('https://docs.scipy.org/doc/scipy/reference', None),
+    'matplotlib': ('https://matplotlib.org/', None),
+    'mayavi': ('http://docs.enthought.com/mayavi/mayavi', None),
+    'sklearn': ('http://scikit-learn.org/stable', None),
+    'sphinx': ('http://www.sphinx-doc.org/en/stable', None),
+    'networkx': ('https://networkx.github.io/', None),
 }
