@@ -4,43 +4,35 @@ GraVE Documentation
 
 """
 import networkx as nx
+from networkx.algorithms.centrality import closeness_centrality
+import matplotlib.pyplot as plt
+
 from grave import grave
 from grave.style import use_attributes
 
 toy_network = nx.barbell_graph(10, 14)
-
-node_options = {
-    'node_color': 'royalblue',
-    'node_size': 50,
-    'edgecolors': 'white',
-}
-
-edge_options = {
-    'line_color': 'grey',
-    'alpha': 0.7,
-}
+toy_centrality = closeness_centrality(toy_network)
+max_centrality = max(toy_centrality.values())
 
 for u, v, edge_attributes in toy_network.edges.data():
-    c = (toy_network.nodes[u]['value'] +
-         toy_network.nodes[v]['value']) / 2
-    edge_attributes['color'] = c
+    c = (toy_centrality[u] +
+         toy_centrality[v]) / 2
+    color_idx = (c / max_centrality)
+    cmap = plt.get_cmap()
+    edge_attributes['color'] = cmap(color_idx)
+    edge_attributes['width'] = 2
+
+for node, node_attributes in toy_network.nodes.data():
+    node_attributes['size'] = (1 - (toy_centrality[node] / 
+                                max_centrality) + .1) * 100
 
 
 def edge_style(edge_attributes):
     return {'linewidth': edge_attributes.get('weight', 1)}
 
-
-
-# TODO add spec
-WHITELIST = {'color', 'linewidth'}
-
-
-def get_all_the_styles(attributes):
-    return {k: v for k, v in attributes.items()
-            if k in WHITELIST}
-
-
-plot_the_network_as_ball_and_stick(ax, toy_network,
-                                   layout='spring',
-                                   node_style=get_all_the_styles,
-                                   edge_stlye=use_attributes('color'))
+fig, ax = plt.subplots()
+grave.plot_network(toy_network,
+                   layout='spring',
+                   node_style=use_attributes(),
+                   edge_style=use_attributes('color'))
+plt.show()
