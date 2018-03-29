@@ -106,3 +106,7 @@ ENV/
 
 # pytest
 .pytest_cache/
+
+# Documentation
+doc/gallery
+doc/_build

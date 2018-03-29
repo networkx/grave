@@ -1,3 +1,8 @@
+"""
+GraVE Documentation
+-------------------
+
+"""
 import networkx as nx
 from grave import grave
 from grave.style import use_attributes
