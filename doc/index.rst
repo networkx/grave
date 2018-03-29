@@ -1,5 +1,5 @@
-Welcome to GraVE's documentation!
-=================================
+GraVE - Dead simple graph visualization
+=======================================
 
 .. toctree::
    :maxdepth: 2
