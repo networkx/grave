@@ -8,5 +8,7 @@ setup(name="GraVE",
       author="NetworkX Developers",
       author_email="networkx-discuss@googlegroups.com",
       license="BSD",
-      packages=["grave"],
+      packages=["grave"]
+      tests_require=['pytest', 'pytest-runner'],
+      setup_requires['pytest-runner'],
       zip_safe=False)

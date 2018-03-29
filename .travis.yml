@@ -57,7 +57,7 @@ script:
 #      source tools/travis/build_docs.sh;
 #    fi
 #  - source tools/travis/script.sh
-  - nosetests --verbosity=2
+  - python setup.py tests
 
 after_success:
 #  - if [[ "${REPORT_COVERAGE}" == 1 ]]; then
