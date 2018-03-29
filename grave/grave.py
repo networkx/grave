@@ -15,20 +15,6 @@ def _ensure_ax(func):
     return inner
 
 
-def style_merger(*funcs):
-    def inner(node_attributes):
-        out = {}
-        for f in funcs:
-            out.update(f(node_attributes))
-        return out
-
-    return inner
-
-
-_VALID_NODE_STYLE = ['size', 'color', 'shape', 'width',
-                     'edgecolor']
-
-
 def _generate_node_artist(pos, styles, *, ax):
     N = len(pos)
     proto_node = next(iter(pos))

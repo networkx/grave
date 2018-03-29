@@ -1,5 +1,6 @@
 import networkx as nx
-
+from grave import grave
+from grave.style import use_attributes
 
 toy_network = nx.barbell_graph(10, 14)
 
@@ -24,12 +25,6 @@ def edge_style(edge_attributes):
     return {'linewidth': edge_attributes.get('weight', 1)}
 
 
-def use_attribute(k, dflt=None):
-    def inner(node_attributes):
-        return {k: node_attributes.get(k, dflt)}
-
-    return inner
-
 
 # TODO add spec
 WHITELIST = {'color', 'linewidth'}
@@ -43,7 +38,4 @@ def get_all_the_styles(attributes):
 plot_the_network_as_ball_and_stick(ax, toy_network,
                                    layout='spring',
                                    node_style=get_all_the_styles,
-                                   edge_stlye=use_attribute('color'),
-                                   node_labels=None,
-                                   edge_labels=None,
-                                   extra_artists=None)
+                                   edge_stlye=use_attributes('color'))
