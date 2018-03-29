@@ -15,9 +15,10 @@ nx.set_node_attributes(graph, dict(graph.degree()), 'degree')
 
 
 def degree_colorer(node_attributes):
-    if node_attributes['degree'] > 5:
-        return {'color': 'r'}
-    return {'color': 'b'}
+    deg = node_attributes['degree']
+    if deg > 5:
+        return {'color': 'r', 'size': 10*deg}
+    return {'color': 'b', 'size': 10*deg}
 
 
 fig, ax = plt.subplots()
