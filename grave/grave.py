@@ -15,6 +15,16 @@ def _ensure_ax(func):
     return inner
 
 
+def style_merger(*funcs):
+    def inner(node_attributes):
+        out = {}
+        for f in funcs:
+            out.update(f(node_attributes))
+        return out
+
+    return inner
+
+
 @_ensure_ax
 def plot_network(graph, layout="spring", node_style=None, edge_style=None,
                  *, ax):
