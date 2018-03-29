@@ -2,7 +2,7 @@
 _VALID_NODE_STYLE = ['size', 'color', 'shape', 'width',
                      'edgecolor']
 
-_VALID_EDGE_STYLE = []
+_VALID_EDGE_STYLE = ['color', 'width', 'style']
 
 _ALL_STYLE_KEYS = _VALID_NODE_STYLE + _VALID_EDGE_STYLE
 
@@ -66,4 +66,5 @@ def generate_node_styles(network, node_style):
 
 def generate_edge_styles(network, edge_style):
     # dict of edge tuple -> edge_style_dict
-    return apply_style(edge_style, network.edges.data())
+    return apply_style(edge_style,
+                       (((u, v), d) for u, v, d in network.edges.data()))

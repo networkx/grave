@@ -5,8 +5,9 @@ GraVE - Dead simple graph visualization
    :maxdepth: 2
    :caption: Contents:
 
-   notes
+   api
    gallery/index
+   notes
 
 Indices and tables
 ==================

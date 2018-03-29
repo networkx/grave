@@ -110,3 +110,4 @@ ENV/
 # Documentation
 doc/gallery
 doc/_build
+doc/generated
