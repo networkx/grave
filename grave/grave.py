@@ -5,7 +5,10 @@ from .style import (generate_node_styles,
                     generate_edge_styles,
                     _VALID_NODE_STYLE,
                     _VALID_EDGE_STYLE)
-from matplotlib.collections import LineCollection
+from matplotlib.collections import LineCollection, PathCollection
+from matplotlib.markers import MarkerStyle
+import matplotlib.transforms as mtransforms
+
 
 
 def _ensure_ax(func):
@@ -33,12 +36,29 @@ def _generate_node_artist(pos, styles, *, ax):
         for key, values in properties.items():
             values[j] = styles[node][key]
 
-    key_map = {'size': 's', 'color': 'c', 'shape': 'marker',
+    key_map = {'size': 'sizes', 'color': 'facecolors', 'shape': 'marker',
                'width': 'linewidths', 'edgecolor': 'edgecolors'}
     renamed_properties = {key_map[k]: v
                           for k, v in properties.items()}
 
-    return ax.scatter(x, y, zorder=2, **renamed_properties)
+    markers = renamed_properties.pop('marker', None)
+
+    if markers is None:
+        paths = (MarkerStyle('o'), )
+    else:
+        paths = [MarkerStyle(m) for m in markers]
+    paths = [p.get_path().transformed(p.get_transform()) for p in paths]
+
+    offsets = np.column_stack([x, y])
+    node_art = PathCollection(paths,
+                              offsets=offsets,
+                              transOffset=ax.transData,
+                              **renamed_properties)
+    node_art.set_transform(mtransforms.IdentityTransform())
+
+    ax.add_collection(node_art)
+    ax.autoscale_view()
+    return node_art
 
 
 def _generate_straight_edges(edges, pos, styles, *, ax):
@@ -87,7 +107,6 @@ def plot_network(graph, layout="spring", node_style=None, edge_style=None,
 
     pos = nx.spring_layout(graph)
 
-    # draw_networkx_edges(graph, pos, ax=ax)
     edge_style_dict = generate_edge_styles(graph, edge_style)
     arts.append(
         _generate_straight_edges(graph.edges(), pos,
@@ -95,6 +114,5 @@ def plot_network(graph, layout="spring", node_style=None, edge_style=None,
     node_style_dict = generate_node_styles(graph, node_style)
     arts.append(
         _generate_node_artist(pos, node_style_dict, ax=ax))
-    # draw_networkx_nodes(graph, pos, ax=ax)
 
     return arts
