@@ -37,7 +37,7 @@ def use_attributes(keys=None):
         if keys is None:
             return {k: attributes[k] for k in _ALL_STYLE_KEYS \
                     if k in attributes}
-        if isinstance(k, str):
+        if isinstance(keys, str):
             return {keys: attributes[keys]} if keys in attributes else {}
         else:
             return {key: attributes[key] for key in keys \
