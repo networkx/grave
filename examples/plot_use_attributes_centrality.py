@@ -7,8 +7,7 @@ import networkx as nx
 from networkx.algorithms.centrality import closeness_centrality
 import matplotlib.pyplot as plt
 
-from grave import grave
-from grave.style import use_attributes
+from grave import plot_network, use_attributes
 
 toy_network = nx.barbell_graph(10, 14)
 toy_centrality = closeness_centrality(toy_network)
@@ -31,8 +30,8 @@ def edge_style(edge_attributes):
     return {'linewidth': edge_attributes.get('weight', 1)}
 
 fig, ax = plt.subplots()
-grave.plot_network(toy_network,
-                   layout='spring',
-                   node_style=use_attributes(),
-                   edge_style=use_attributes('color'))
+plot_network(toy_network,
+             layout='spring',
+             node_style=use_attributes(),
+             edge_style=use_attributes('color'))
 plt.show()

@@ -7,7 +7,7 @@ Test
 import networkx as nx
 import matplotlib.pyplot as plt
 import random
-from grave import grave
+from grave import plot_network
 
 
 graph = nx.barbell_graph(10, 14)
@@ -28,6 +28,6 @@ def pathological_edge_style(edge_attrs):
 
 
 fig, ax = plt.subplots()
-grave.plot_network(graph, ax=ax, node_style=degree_colorer,
-                   edge_style=pathological_edge_style)
+plot_network(graph, ax=ax, node_style=degree_colorer,
+             edge_style=pathological_edge_style)
 plt.show()
