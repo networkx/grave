@@ -57,7 +57,7 @@ script:
 #      source tools/travis/build_docs.sh;
 #    fi
 #  - source tools/travis/script.sh
-  - python setup.py tests
+  - python setup.py test
 
 after_success:
 #  - if [[ "${REPORT_COVERAGE}" == 1 ]]; then
