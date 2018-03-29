@@ -114,5 +114,5 @@ def plot_network(graph, layout="spring", node_style=None, edge_style=None,
     node_style_dict = generate_node_styles(graph, node_style)
     arts.append(
         _generate_node_artist(pos, node_style_dict, ax=ax))
-
+    ax.set_axis_off()
     return arts
