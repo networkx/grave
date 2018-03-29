@@ -1,3 +1,8 @@
+"""
+GraVE Documentation
+-------------------
+
+"""
 import networkx as nx
 from networkx.algorithms.approximation.dominating_set import min_weighted_dominating_set
 import matplotlib.pyplot as plt
