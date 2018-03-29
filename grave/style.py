@@ -21,4 +21,5 @@ def generate_node_styles(network, node_style):
 
 def generate_edge_styles(network, edge_style):
     # dict of edge tuple -> edge_style_dict
-    return apply_style(edge_style, network.edges.data())
+    return apply_style(edge_style,
+                       (((u, v), d) for u, v, d in network.edges.data()))
