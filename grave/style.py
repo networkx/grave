@@ -7,6 +7,22 @@ _VALID_EDGE_STYLE = ['color', 'width', 'style']
 _ALL_STYLE_KEYS = _VALID_NODE_STYLE + _VALID_EDGE_STYLE
 
 
+def default_node_style():
+    return {'color': 'C0',
+            'size': 50,
+            'shape': 'o',
+            'width': 1,
+            'edgecolor': 'white'}
+
+def default_edge_style():
+    return {'color': '#292929',
+            'width': 1,
+            'style': '-'}
+
+def default_style():
+    return {'node_style': node_style, 'edge_style': edge_style}
+
+
 def style_merger(*funcs):
     def inner(node_attributes):
         out = {}
@@ -45,14 +61,18 @@ def use_attributes(keys=None):
     return inner
 
 
-def apply_style(style, item_iterable):
+def apply_style(style, item_iterable, default):
     styles = {}
     if callable(style):
         for item, item_attr in item_iterable:
-            styles[item] = style(item_attr)
+            base = default()
+            base.update(style(item_attr))
+            styles[item] = base
     elif isinstance(style, dict):
+        base = default()
+        base.update(style)
         for item, item_attr in item_iterable:
-            styles[item] = style
+            styles[item] = base
     else:
         raise TypeError("style must be dict or callable,"
                         " got {0}".format(type(style)))
@@ -61,10 +81,13 @@ def apply_style(style, item_iterable):
 
 def generate_node_styles(network, node_style):
     # dict of node id -> node_style_dict
-    return apply_style(node_style, network.nodes.data())
+    return apply_style(node_style,
+                       network.nodes.data(),
+                       default_node_style)
 
 
 def generate_edge_styles(network, edge_style):
     # dict of edge tuple -> edge_style_dict
     return apply_style(edge_style,
-                       (((u, v), d) for u, v, d in network.edges.data()))
+                       (((u, v), d) for u, v, d in network.edges.data()),
+                       default_edge_style)
