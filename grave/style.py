@@ -22,7 +22,8 @@ def default_edge_style():
 
 
 def default_style():
-    return {'node_style': node_style, 'edge_style': edge_style}
+    return {'node_style': default_node_style,
+            'edge_style': default_edge_style}
 
 
 def style_merger(*funcs):
@@ -53,12 +54,12 @@ def use_attributes(keys=None):
 
     def inner(attributes):
         if keys is None:
-            return {k: attributes[k] for k in _ALL_STYLE_KEYS \
+            return {k: attributes[k] for k in _ALL_STYLE_KEYS
                     if k in attributes}
         if isinstance(keys, str):
             return {keys: attributes[keys]} if keys in attributes else {}
         else:
-            return {key: attributes[key] for key in keys \
+            return {key: attributes[key] for key in keys
                     if key in attributes}
     return inner
 
