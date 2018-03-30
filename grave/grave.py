@@ -155,7 +155,7 @@ class NXArtist(Artist):
 
         return (mins, maxs)
 
-    def _reprocess(self):
+    def _reprocess(self, *, reset_pos=True):
         # nuke old state and mark as stale
         self._clear_state()
         self.stale = True
@@ -166,7 +166,9 @@ class NXArtist(Artist):
         node_style = self.node_style
 
         # update the layout
-        self._pos = pos = _apply_layout(self.layout, graph)
+        if reset_pos:
+            self._pos = _apply_layout(self.layout, graph)
+        pos = self._pos
 
         # handle the edges
         edge_style_dict = generate_edge_styles(graph, edge_style)
