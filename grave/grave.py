@@ -120,7 +120,7 @@ def _stale_wrapper(func):
 
 @_forwarder(('set_clip_path', 'set_clip_box', 'set_transform',
              'set_snap', 'set_sketch_params', 'set_figure',
-             'set_animated'))
+             'set_animated', 'set_picker'))
 class NXArtist(Artist):
     def __init__(self, graph, layout, node_style, edge_style):
         super().__init__()
@@ -206,8 +206,34 @@ class NXArtist(Artist):
         if not self.get_children():
             self._reprocess()
 
+        elif self.stale:
+            self._reprocess(reset_pos=False)
+
         for art in self.get_children():
             art.draw(renderer, *args, **kwargs)
+
+    def contains(self, mouseevent):
+        props = {}
+        edge_hit, edge_props = self._edge_artist.contains(mouseevent)
+        node_hit, node_props = self._node_artist.contains(mouseevent)
+        props['nodes'] = [self._node_indx[j]
+                          for j in node_props.get('ind', [])]
+        props['edges'] = [self._edge_indx[j]
+                          for j in edge_props.get('ind', [])]
+
+        return edge_hit | node_hit, props
+
+    def pick(self, mouseevent):
+        # Pick self
+        if self.pickable():
+            picker = self.get_picker()
+            if callable(picker):
+                inside, prop = picker(self, mouseevent)
+            else:
+                inside, prop = self.contains(mouseevent)
+            if inside:
+                self.figure.canvas.pick_event(mouseevent, self, **prop)
+
 
 
 @_ensure_ax
