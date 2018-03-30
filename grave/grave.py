@@ -131,10 +131,22 @@ class NXArtist(Artist):
         self.node_style = node_style
         self.edge_style = edge_style
 
+        # update the layout once so we can use
+        # get_datalim before we draw
+        self._pos = _apply_layout(self.layout, graph)
+
         self._children = []
 
     def get_children(self):
         return list(self._children)
+
+    def get_datalim(self):
+        pos = np.vstack(list(self._pos.values()))
+
+        mins = pos.min(axis=0)
+        maxs = pos.max(axis=0)
+
+        return (mins, maxs)
 
     def _reprocess(self):
         self._children.clear()
@@ -144,7 +156,8 @@ class NXArtist(Artist):
         edge_style = self.edge_style
         node_style = self.node_style
 
-        pos = _apply_layout(self.layout, graph)
+        # update the layout
+        self._pos = pos = _apply_layout(self.layout, graph)
 
         edge_style_dict = generate_edge_styles(graph, edge_style)
         arts.extend(
@@ -202,6 +215,9 @@ def plot_network(graph, layout="spring",
 
     art = NXArtist(graph, layout, node_style, edge_style)
     ax.add_artist(art)
+    art._reprocess()
+    ax.update_datalim(art.get_datalim())
+    ax.autoscale_view()
     ax.set_axis_off()
 
     return art
