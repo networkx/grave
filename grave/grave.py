@@ -1,5 +1,5 @@
 import networkx as nx
-from functools import wraps
+from functools import wraps, partial
 import numpy as np
 from .style import (generate_node_styles,
                     generate_edge_styles,
@@ -88,6 +88,31 @@ def _generate_straight_edges(edges, pos, styles, *, ax):
     return line_art,
 
 
+def _forwarder(forwards, cls=None):
+    if cls is None:
+        return partial(_forwarder, forwards)
+
+    def make_forward(name):
+        def method(self, *args, **kwargs):
+            ret = getattr(cls.mro()[1], name)(self, *args, **kwargs)
+            for c in self.get_children():
+                getattr(c, name)(*args, **kwargs)
+            return ret
+
+        return method
+
+    for f in forwards:
+        method = make_forward(f)
+        method.__name__ = f
+        method.__doc__ = 'broadcasts {} to children'.format(f)
+        setattr(cls, f, method)
+
+    return cls
+
+
+@_forwarder(('set_clip_path', 'set_clip_box', 'set_transform',
+             'set_snap', 'set_sketch_params', 'set_figure',
+             'set_animated'))
 class NXArtist(Artist):
     def __init__(self, graph, layout, node_style, edge_style):
         super().__init__()
