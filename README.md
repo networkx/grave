@@ -34,7 +34,7 @@ from networkx.algorithms.approximation.dominating_set import min_weighted_domina
 
 from grave import plot_network
 
-network = nx.barbell_graph(10, 10)
+network = nx.powerlaw_cluster_graph(50, 1, .2)
 dom_set = min_weighted_dominating_set(network)
 
 for node, node_attrs in network.nodes(data=True):
@@ -44,7 +44,7 @@ def color_dominators(node_attrs):
     if node_attrs.get('is_dominator', False):
         return {'color': 'red'}
     else:
-        return {'color': 'gray'}
+        return {'color': 'black'}
 
 fig, ax = plt.subplots()
 plot_network(network, node_style=color_dominators)
