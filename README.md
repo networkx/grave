@@ -9,9 +9,9 @@ defaults and simple style configuration. Currently, it supports
 drawing graphs from NetworkX.
 
 <div align="center">
-    <table>
+    <table border="0">
         <tr>
-            <td><center><img src="https://github.com/networkx/grave/raw/master/doc/default.png" width=50%></center><br></td>
+            <td align="center"><img src="https://github.com/networkx/grave/raw/master/doc/default.png" width=50%><br></td>
             <td>
                 <img src="https://travis-ci.org/networkx/grave.svg?branch=master)](https://travis-ci.org/networkx/grave"><br>
                 <a href='http://grave.readthedocs.io/en/latest/?badge=latest'>
