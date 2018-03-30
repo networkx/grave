@@ -7,11 +7,8 @@ from .style import (generate_node_styles,
                     _VALID_EDGE_STYLE)
 from matplotlib.collections import LineCollection, PathCollection
 from matplotlib.markers import MarkerStyle
-import matplotlib.transforms as mtransforms
-
 from ._layout import _apply_layout
 from matplotlib.artist import Artist
-
 
 
 def _ensure_ax(func):
@@ -28,7 +25,7 @@ def _ensure_ax(func):
 def _generate_node_artist(pos, styles, *, ax):
     N = len(pos)
     proto_node = next(iter(pos))
-
+    node_indx = [None] * N
     x = np.zeros(N) * np.nan
     y = np.zeros(N) * np.nan
     properties = {k: [None] * N for k in styles[proto_node]
@@ -38,6 +35,7 @@ def _generate_node_artist(pos, styles, *, ax):
         x[j], y[j] = pos[node]
         for key, values in properties.items():
             values[j] = styles[node][key]
+        node_indx[j] = node
 
     key_map = {'size': 'sizes', 'color': 'facecolors', 'shape': 'marker',
                'width': 'linewidths', 'edgecolor': 'edgecolors'}
@@ -58,14 +56,14 @@ def _generate_node_artist(pos, styles, *, ax):
                               transOffset=ax.transData,
                               **renamed_properties)
 
-    return node_art,
+    return node_art, node_indx
 
 
 def _generate_straight_edges(edges, pos, styles, *, ax):
     N = len(edges)
     proto_edge = next(iter(edges))
     edge_pos = [None] * N
-
+    edge_indx = [None] * N
     properties = {k: [None] * N for k in styles[proto_edge]
                   if k in _VALID_EDGE_STYLE}
 
@@ -73,6 +71,7 @@ def _generate_straight_edges(edges, pos, styles, *, ax):
         edge_pos[j] = (pos[u], pos[v])
         for key, values in properties.items():
             values[j] = styles[(u, v)][key]
+        edge_indx[j] = (u, v)
     key_map = {'color': 'colors',
                'width': 'linewidths',
                'style': 'linestyle'}
@@ -84,7 +83,7 @@ def _generate_straight_edges(edges, pos, styles, *, ax):
                               zorder=1,
                               **renamed_properties)
     line_art.set_transform(ax.transData)
-    return line_art,
+    return line_art, edge_indx
 
 
 def _forwarder(forwards, cls=None):
@@ -133,11 +132,20 @@ class NXArtist(Artist):
         # update the layout once so we can use
         # get_datalim before we draw
         self._pos = _apply_layout(self.layout, graph)
+        self._node_artist = None
+        self._node_indx = None
+        self._edge_artist = None
+        self._edge_indx = None
 
-        self._children = []
+    def _clear_state(self):
+        self._node_artist = None
+        self._node_indx = None
+        self._edge_artist = None
+        self._edge_indx = None
 
     def get_children(self):
-        return list(self._children)
+        return tuple(a for a in (self._node_artist, self._edge_artist)
+                     if a is not None)
 
     def get_datalim(self):
         pos = np.vstack(list(self._pos.values()))
@@ -149,11 +157,10 @@ class NXArtist(Artist):
 
     def _reprocess(self):
         # nuke old state and mark as stale
-        self._children.clear()
+        self._clear_state()
         self.stale = True
 
         # get local refs to everything (just for less typing)
-        arts = self._children
         graph = self.graph
         edge_style = self.edge_style
         node_style = self.node_style
@@ -161,16 +168,21 @@ class NXArtist(Artist):
         # update the layout
         self._pos = pos = _apply_layout(self.layout, graph)
 
+        # handle the edges
         edge_style_dict = generate_edge_styles(graph, edge_style)
-        arts.extend(
+        self._edge_artist, self._edge_indx = (
             _generate_straight_edges(graph.edges(), pos,
                                      edge_style_dict, ax=self.axes))
+
+        # handle the nodes
         node_style_dict = generate_node_styles(graph, node_style)
-        arts.extend(
+        self._node_artist, self._node_indx = (
             _generate_node_artist(pos, node_style_dict, ax=self.axes))
 
+        # TODO handle the text
+
         # TODO sort out all of the things that need to be forwarded
-        for child in arts:
+        for child in self.get_children():
             # set the figure / axes on child, this is needed
             # by some internals
             child.set_figure(self.figure)
@@ -189,10 +201,10 @@ class NXArtist(Artist):
         if not self.get_visible():
             return
 
-        if not self._children:
+        if not self.get_children():
             self._reprocess()
 
-        for art in self._children:
+        for art in self.get_children():
             art.draw(renderer, *args, **kwargs)
 
 
