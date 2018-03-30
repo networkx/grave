@@ -25,6 +25,8 @@ drawing graphs from NetworkX.
 
 ## Example Usage
 
+Here, we create a graph and color the nodes in its minimum weighted dominating set:
+
 ```python
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -49,3 +51,9 @@ plot_network(network, node_style=color_dominators)
 plt.show()
 
 ```
+
+The result:
+
+<div align="center">
+    <img src="https://github.com/networkx/grave/raw/master/doc/dominators.png" width=75%>
+</div>
