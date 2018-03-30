@@ -14,10 +14,12 @@ def default_node_style():
             'width': 1,
             'edgecolor': 'white'}
 
+
 def default_edge_style():
     return {'color': '#292929',
             'width': 1,
             'style': '-'}
+
 
 def default_style():
     return {'node_style': node_style, 'edge_style': edge_style}

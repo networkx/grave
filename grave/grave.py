@@ -9,6 +9,7 @@ from matplotlib.collections import LineCollection, PathCollection
 from matplotlib.markers import MarkerStyle
 import matplotlib.transforms as mtransforms
 
+from ._layout import _apply_layout
 
 
 def _ensure_ax(func):
@@ -105,7 +106,7 @@ def plot_network(graph, layout="spring", node_style=None, edge_style=None,
     if edge_style is None:
         edge_style = {}
 
-    pos = nx.spring_layout(graph)
+    pos = _apply_layout(layout, graph)
 
     edge_style_dict = generate_edge_styles(graph, edge_style)
     arts.append(
