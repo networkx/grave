@@ -110,6 +110,16 @@ def _forwarder(forwards, cls=None):
     return cls
 
 
+def _stale_wrapper(func):
+    @wraps(func)
+    def inner(self, *args, **kwargs):
+        try:
+            func(self, *args, **kwargs)
+        finally:
+            self.stale = False
+    return inner
+
+
 @_forwarder(('set_clip_path', 'set_clip_box', 'set_transform',
              'set_snap', 'set_sketch_params', 'set_figure',
              'set_animated'))
@@ -159,8 +169,8 @@ class NXArtist(Artist):
             else:
                 child.set_clip_path(clip_path)
 
+    @_stale_wrapper
     def draw(self, renderer, *args, **kwargs):
-        self.stale = False
         if not self._children:
             self._reprocess()
 
