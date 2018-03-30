@@ -1,3 +1,2 @@
-GraVE Documentation
--------------------
-
+Gallery
+-------

@@ -2,7 +2,7 @@
 Different layouts
 =================
 
-GraVE supports different layouts by default
+GraVE supports different layouts by default.
 """
 
 import networkx as nx
