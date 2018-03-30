@@ -2,6 +2,7 @@
     <table border=0>
         <tr>
             <td>
+                <h1> grave </h1>
                 <a href="https://travis-ci.org/networkx/grave">
                     <img src="https://travis-ci.org/networkx/grave.svg?branch=master"><br>
                 </a>
