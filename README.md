@@ -8,13 +8,24 @@ network drawing API that covers the most use cases with sensible
 defaults and simple style configuration. Currently, it supports
 drawing graphs from NetworkX.
 
-![graph](doc/default.png)
+<div align="center">
+    <table>
+        <tr>
+            <td><center><img src="https://github.com/networkx/grave/raw/master/doc/default.png" width=50%></center><br></td>
+            <td>
+                <img src="https://travis-ci.org/networkx/grave.svg?branch=master)](https://travis-ci.org/networkx/grave"><br>
+                <a href='http://grave.readthedocs.io/en/latest/?badge=latest'>
+                    <img src='http://readthedocs.org/projects/grave/badge/?version=latest' alt='Documentation Status' />
+                </a>   
+            </td>
+        </tr>
+    </table>
+</div>
 
 ## Example Usage
 
 ```python
-import matplotlib.pyplot as plt
-import networkx as nx
+import network as nx
 from networkx.algorithms.approximation.dominating_set import min_weighted_dominating_set
 
 from grave import plot_network
@@ -32,7 +43,7 @@ def color_dominator_nodes(node_attrs):
         return {'color': 'gray'}
 
 fig, ax = plt.subplots()
-plot_network(network, node_style=color_dominator_nodes)
+plot_network(network, node_style=color_dominators)
 plt.show()
 
 ```
