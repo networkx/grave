@@ -119,9 +119,20 @@ class NXArtist(Artist):
         arts.extend(
             _generate_node_artist(pos, node_style_dict, ax=self.axes))
 
+        # TODO sort out all of the things that need to be forwarded
         for child in arts:
+            # set the figure / axes on child, this is needed
+            # by some internals
             child.set_figure(self.figure)
             child.axes = self.axes
+            # forward the clippath/box to the children need this logic
+            # because mpl exposes some fast-path logic
+            clip_path = self.get_clip_path()
+            if clip_path is None:
+                clip_box = self.get_clip_box()
+                child.set_clip_box(clip_box)
+            else:
+                child.set_clip_path(clip_path)
 
     def draw(self, renderer, *args, **kwargs):
         self.stale = False
