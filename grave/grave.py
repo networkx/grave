@@ -144,7 +144,7 @@ class NXArtist(Artist):
         self._edge_indx = None
 
     def get_children(self):
-        return tuple(a for a in (self._node_artist, self._edge_artist)
+        return tuple(a for a in (self._edge_artist, self._node_artist)
                      if a is not None)
 
     def get_datalim(self):
