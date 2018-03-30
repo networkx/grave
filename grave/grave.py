@@ -12,6 +12,10 @@ from matplotlib.artist import Artist
 
 
 def _ensure_ax(func):
+    """Ensure that the wrapped function get an Axes
+
+    If one is not passed in explicitly, ask pyplot for the current Axes
+    """
     @wraps(func)
     def inner(*args, **kwargs):
         if 'ax' not in kwargs:
