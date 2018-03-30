@@ -57,7 +57,6 @@ def _generate_node_artist(pos, styles, *, ax):
                               offsets=offsets,
                               transOffset=ax.transData,
                               **renamed_properties)
-    node_art.set_transform(mtransforms.IdentityTransform())
 
     return node_art,
 
