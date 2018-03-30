@@ -1,18 +1,16 @@
 """
-A simple network
-----------------
+A dead simple network
+---------------------
 
-Test
+The simplest way to plot a graphe ever. And yet it looks cool!
 """
+
 import networkx as nx
 import matplotlib.pyplot as plt
 from grave import plot_network
 
-
+# Generating a networkx graph
 graph = nx.barbell_graph(10, 14)
-
-nx.set_node_attributes(graph, dict(graph.degree()), 'degree')
-
 
 fig, ax = plt.subplots()
 plot_network(graph, ax=ax)

@@ -1,8 +1,8 @@
 """
-Test
-====
+Using another style
+===================
 
-Test
+In this example, we show how to use another default Matplotlib style.
 """
 
 import networkx as nx
@@ -17,14 +17,15 @@ plot_network(network, ax=ax_mat[0])
 ax_mat[0].set_axis_on()
 with plt.style.context(('ggplot')):
     plot_network(network, ax=ax_mat[1])
+
 ax_mat[1].set_axis_on()
 for ax in ax_mat:
     ax.set_axis_on()
     ax.tick_params(which='both',
-                bottom=False,
-                top=False,
-                left=False,
-                right=False,
-                labelbottom=False,
-                labelleft=False)
+                   bottom=False,
+                   top=False,
+                   left=False,
+                   right=False,
+                   labelbottom=False,
+                   labelleft=False)
 plt.show()
