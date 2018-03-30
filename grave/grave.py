@@ -149,9 +149,12 @@ class NXArtist(Artist):
         return (mins, maxs)
 
     def _reprocess(self):
+        # nuke old state and mark as stale
         self._children.clear()
-        arts = self._children
+        self.stale = True
 
+        # get local refs to everything (just for less typing)
+        arts = self._children
         graph = self.graph
         edge_style = self.edge_style
         node_style = self.node_style
