@@ -10,6 +10,8 @@ from matplotlib.markers import MarkerStyle
 import matplotlib.transforms as mtransforms
 
 from ._layout import _apply_layout
+from matplotlib.artist import Artist
+
 
 
 def _ensure_ax(func):
@@ -57,9 +59,7 @@ def _generate_node_artist(pos, styles, *, ax):
                               **renamed_properties)
     node_art.set_transform(mtransforms.IdentityTransform())
 
-    ax.add_collection(node_art)
-    ax.autoscale_view()
-    return node_art
+    return node_art,
 
 
 def _generate_straight_edges(edges, pos, styles, *, ax):
@@ -84,12 +84,58 @@ def _generate_straight_edges(edges, pos, styles, *, ax):
                               transOffset=ax.transData,
                               zorder=1,
                               **renamed_properties)
-    ax.add_collection(line_art)
-    return line_art
+    line_art.set_transform(ax.transData)
+    return line_art,
+
+
+class NXArtist(Artist):
+    def __init__(self, graph, layout, node_style, edge_style):
+        super().__init__()
+        self.graph = graph
+        self.layout = layout
+        self.node_style = node_style
+        self.edge_style = edge_style
+
+        self._children = []
+
+    def get_children(self):
+        return list(self._children)
+
+    def _reprocess(self):
+        self._children.clear()
+        arts = self._children
+
+        graph = self.graph
+        edge_style = self.edge_style
+        node_style = self.node_style
+
+        pos = _apply_layout(self.layout, graph)
+
+        edge_style_dict = generate_edge_styles(graph, edge_style)
+        arts.extend(
+            _generate_straight_edges(graph.edges(), pos,
+                                     edge_style_dict, ax=self.axes))
+        node_style_dict = generate_node_styles(graph, node_style)
+        arts.extend(
+            _generate_node_artist(pos, node_style_dict, ax=self.axes))
+
+        for child in arts:
+            child.set_figure(self.figure)
+            child.axes = self.axes
+
+    def draw(self, renderer, *args, **kwargs):
+        self.stale = False
+        if not self._children:
+            self._reprocess()
+
+        for art in self._children:
+            art.draw(renderer, *args, **kwargs)
 
 
 @_ensure_ax
-def plot_network(graph, layout="spring", node_style=None, edge_style=None,
+def plot_network(graph, layout="spring",
+                 node_style=None,
+                 edge_style=None,
                  *, ax):
     """
     Plot network
@@ -99,21 +145,14 @@ def plot_network(graph, layout="spring", node_style=None, edge_style=None,
 
     graph : networkx graph object
     """
-    arts = []
     if node_style is None:
         node_style = {}
 
     if edge_style is None:
         edge_style = {}
 
-    pos = _apply_layout(layout, graph)
-
-    edge_style_dict = generate_edge_styles(graph, edge_style)
-    arts.append(
-        _generate_straight_edges(graph.edges(), pos,
-                                 edge_style_dict, ax=ax))
-    node_style_dict = generate_node_styles(graph, node_style)
-    arts.append(
-        _generate_node_artist(pos, node_style_dict, ax=ax))
+    art = NXArtist(graph, layout, node_style, edge_style)
+    ax.add_artist(art)
     ax.set_axis_off()
-    return arts
+
+    return art
