@@ -171,6 +171,9 @@ class NXArtist(Artist):
 
     @_stale_wrapper
     def draw(self, renderer, *args, **kwargs):
+        if not self.get_visible():
+            return
+
         if not self._children:
             self._reprocess()
 
