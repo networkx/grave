@@ -8,6 +8,8 @@ network drawing API that covers the most use cases with sensible
 defaults and simple style configuration. Currently, it supports
 drawing graphs from NetworkX.
 
+![graph](doc/default.png)
+
 ## Example Usage
 
 ```python
