@@ -13,7 +13,8 @@ drawing graphs from NetworkX.
 ## Example Usage
 
 ```python
-import network as nx
+import matplotlib.pyplot as plt
+import networkx as nx
 from networkx.algorithms.approximation.dominating_set import min_weighted_dominating_set
 
 from grave import plot_network
@@ -31,7 +32,7 @@ def color_dominator_nodes(node_attrs):
         return {'color': 'gray'}
 
 fig, ax = plt.subplots()
-plot_network(network, node_style=color_dominators)
+plot_network(network, node_style=color_dominator_nodes)
 plt.show()
 
 ```
