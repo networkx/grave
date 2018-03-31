@@ -2,4 +2,3 @@ sphinx
 sphinx-gallery
 pillow
 numpydoc
--r ../requirements.txt
