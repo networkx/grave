@@ -373,6 +373,15 @@ def plot_network(graph, layout="spring",
     ----------
 
     graph : networkx graph object
+
+    layout : string or callable, optional, default: "spring"
+        Specifies the type of layout to use for plotting.
+        It must be one of "spring", "circular", "random", "kamada_kawai",
+        "shell", "spectral", or a callable.
+        If a callable is given, it is used to compute the 2D coordinates from
+        the graph object, and should return a FIXME.
+        
+
     """
     if node_style is None:
         node_style = {}
