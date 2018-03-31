@@ -4,7 +4,26 @@ _VALID_NODE_STYLE = ['size', 'color', 'shape', 'width',
 
 _VALID_EDGE_STYLE = ['color', 'width', 'style']
 
-_ALL_STYLE_KEYS = _VALID_NODE_STYLE + _VALID_EDGE_STYLE
+_VALID_NODE_LABEL_STYLE = ['bbox',
+                           'font_size',
+                           'font_color',
+                           'font_family',
+                           'font_weight',
+                           'horizontalalignment',
+                           'verticalalignment']
+
+_VALID_EDGE_LABEL_STYLE = ['bbox',
+                           'label_pos',
+                           'rotate',
+                           'font_size',
+                           'font_color',
+                           'font_family',
+                           'font_weight',
+                           'horizontalalignment',
+                           'verticalalignment']
+
+_ALL_STYLE_KEYS = _VALID_NODE_STYLE + _VALID_NODE_LABEL_STYLE + \
+                  _VALID_EDGE_STYLE + _VALID_EDGE_LABEL_STYLE
 
 
 def default_node_style():
@@ -19,6 +38,35 @@ def default_edge_style():
     return {'color': '#292929',
             'width': 1,
             'style': '-'}
+
+
+# box of white with white border
+_BBOX_DEFAULT = dict(boxstyle='round',
+                     ec=(1.0, 1.0, 1.0),
+                     fc=(1.0, 1.0, 1.0),
+                     )
+
+
+def default_node_label_style():
+    return {'bbox': _BBOX_DEFAULT,
+            'font_size': 4,
+            'font_color': '#292929',
+            'font_family': None,
+            'font_weight': 1,
+            'horizontalalignment': 'center',
+            'verticalalignment': 'center'}
+
+
+def default_edge_label_style():
+    return {'bbox': _BBOX_DEFAULT,
+            'label_pos': 0.5,
+            'rotate': 0,
+            'font_size': 4,
+            'font_color': '#292929',
+            'font_family': None,
+            'font_weight': 1,
+            'horizontalalignment': 'center',
+            'verticalalignment': 'center'}
 
 
 def default_style():
@@ -94,3 +142,17 @@ def generate_edge_styles(network, edge_style):
     return apply_style(edge_style,
                        network.edges.items(),
                        default_edge_style)
+
+
+def generate_node_label_styles(network, label_style):
+    # returns dict of node id -> node_style_dict
+    return apply_style(label_style,
+                       network.nodes.items(),
+                       default_node_label_style)
+
+
+def generate_edge_label_styles(network, label_style):
+    # returns dict of edge tuple -> edge_style_dict
+    return apply_style(label_style,
+                       network.edges.items(),
+                       default_edge_label_style)
