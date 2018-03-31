@@ -1,14 +1,19 @@
 import networkx as nx
 from functools import wraps, partial
 import numpy as np
-from .style import (generate_node_styles,
-                    generate_edge_styles,
-                    _VALID_NODE_STYLE,
-                    _VALID_EDGE_STYLE)
 from matplotlib.collections import LineCollection, PathCollection
 from matplotlib.markers import MarkerStyle
-from ._layout import _apply_layout
 from matplotlib.artist import Artist
+
+from ._layout import _apply_layout
+from .style import (generate_node_styles,
+                    generate_edge_styles,
+                    generate_node_label_styles,
+                    generate_edge_label_styles,
+                    _VALID_NODE_STYLE,
+                    _VALID_EDGE_STYLE,
+                    _VALID_NODE_LABEL_STYLE,
+                    _VALID_EDGE_LABEL_STYLE)
 
 
 def _ensure_ax(func):
@@ -90,6 +95,93 @@ def _generate_straight_edges(edges, pos, styles, *, ax):
     return line_art, edge_indx
 
 
+def _generate_node_labels(pos, styles, *, ax):
+    key_map = {'font_size': 'size',
+               'font_color': 'color',
+               'font_family': 'family',
+               'font_weight': 'weight',
+               'alpha': 'alpha',
+               'bbox': 'bbox',
+               'horizontalalignment': 'horizontalalignment',
+               'verticalalignment': 'verticalalignment'}
+
+    node_labels_dict = {}
+    for node, nstyle in styles.items():
+        properties = {key_map[k]: v for k, v in nstyle.items()
+                      if k in key_map}
+
+        x, y = pos[node]
+
+        if 'label' in nstyle:
+            label = nstyle['label']
+        else:
+            label = str(node)    # this makes "1" and 1 the same
+
+        node_labels_dict[node] = ax.text(x, y,
+                                         label,
+                                         transform=ax.transData,
+                                         clip_on=True,
+                                         **properties)
+    ax.autoscale_view()
+    return node_labels_dict
+
+
+def _generate_edge_labels(pos, styles, *, ax):
+    key_map = {'font_size': 'size',
+               'font_color': 'color',
+               'font_family': 'family',
+               'font_weight': 'weight',
+               'alpha': 'alpha',
+               'bbox': 'bbox',
+               'horizontalalignment': 'horizontalalignment',
+               'verticalalignment': 'verticalalignment'}
+
+    edge_labels_dict = {}
+    for edge, estyle in styles.items():
+        properties = {key_map[k]: v for k, v in estyle.items()
+                      if k in key_map}
+
+        if 'label' in estyle:
+            label = estyle['label']
+        else:
+            label = str(edge)    # this makes "1" and 1 the same
+
+        if 'label_pos' in estyle:
+            label_pos = estyle['label_pos']
+        else:
+            label_pos = 0.5
+
+        (x1, y1) = pos[edge[0]]
+        (x2, y2) = pos[edge[1]]
+        (x, y) = (x1 * label_pos + x2 * (1.0 - label_pos),
+                  y1 * label_pos + y2 * (1.0 - label_pos))
+
+        if 'rotate' in estyle and estyle['rotate'] is True:
+            # in degrees
+            angle = np.arctan2(y2 - y1, x2 - x1) / (2.0 * np.pi) * 360
+            # make label orientation "right-side-up"
+            if angle > 90:
+                angle -= 180
+            if angle < - 90:
+                angle += 180
+            # transform data coordinate angle to screen coordinate angle
+            xy = np.array((x, y))
+            trans_angle = ax.transData.transform_angles(np.array((angle,)),
+                                                        xy.reshape((1, 2)))[0]
+        else:
+            trans_angle = 0.0
+
+        edge_labels_dict[edge] = ax.text(x, y,
+                                         label,
+                                         rotation=trans_angle,
+                                         transform=ax.transData,
+                                         clip_on=True,
+                                         zorder=1,
+                                         **properties)
+    ax.autoscale_view()
+    return edge_labels_dict
+
+
 def _forwarder(forwards, cls=None):
     if cls is None:
         return partial(_forwarder, forwards)
@@ -126,12 +218,17 @@ def _stale_wrapper(func):
              'set_snap', 'set_sketch_params', 'set_figure',
              'set_animated', 'set_picker'))
 class NXArtist(Artist):
-    def __init__(self, graph, layout, node_style, edge_style):
+    def __init__(self, graph, layout, node_style, edge_style,
+                 node_label_style=None,
+                 edge_label_style=None,
+                 ):
         super().__init__()
         self.graph = graph
         self.layout = layout
         self.node_style = node_style
         self.edge_style = edge_style
+        self.node_label_style = node_label_style
+        self.edge_label_style = edge_label_style
 
         # update the layout once so we can use
         # get_datalim before we draw
@@ -140,16 +237,24 @@ class NXArtist(Artist):
         self._node_indx = None
         self._edge_artist = None
         self._edge_indx = None
+        self._node_label_dict = None
+        self._edge_label_dict = None
 
     def _clear_state(self):
         self._node_artist = None
         self._node_indx = None
         self._edge_artist = None
         self._edge_indx = None
+        self._node_label_dict = None
+        self._edge_label_dict = None
 
     def get_children(self):
-        return tuple(a for a in (self._edge_artist, self._node_artist)
-                     if a is not None)
+        artists = [self._edge_artist, self._node_artist]
+        if self._node_label_dict is not None:
+            artists.extend(self._node_label_dict.values())
+        if self._edge_label_dict is not None:
+            artists.extend(self._edge_label_dict.values())
+        return tuple(a for a in artists if a is not None)
 
     def get_datalim(self):
         pos = np.vstack(list(self._pos.values()))
@@ -168,6 +273,8 @@ class NXArtist(Artist):
         graph = self.graph
         edge_style = self.edge_style
         node_style = self.node_style
+        edge_label_style = self.edge_label_style
+        node_label_style = self.node_label_style
 
         # update the layout
         if reset_pos:
@@ -186,6 +293,20 @@ class NXArtist(Artist):
             _generate_node_artist(pos, node_style_dict, ax=self.axes))
 
         # TODO handle the text
+
+        # handle the node labels
+        if node_label_style is not None:
+            nlabel_style_dict = generate_node_label_styles(graph,
+                                                           node_label_style)
+            self._node_label_dict = (
+                _generate_node_labels(pos, nlabel_style_dict, ax=self.axes))
+
+        # handle the edge labels
+        if edge_label_style is not None:
+            elabel_style_dict = generate_edge_label_styles(graph,
+                                                           edge_label_style)
+            self._edge_label_artist = (
+                _generate_edge_labels(pos, elabel_style_dict, ax=self.axes))
 
         # TODO sort out all of the things that need to be forwarded
         for child in self.get_children():
@@ -239,11 +360,12 @@ class NXArtist(Artist):
                 self.figure.canvas.pick_event(mouseevent, self, **prop)
 
 
-
 @_ensure_ax
 def plot_network(graph, layout="spring",
                  node_style=None,
                  edge_style=None,
+                 node_label_style=None,
+                 edge_label_style=None,
                  *, ax):
     """
     Plot network
@@ -259,7 +381,8 @@ def plot_network(graph, layout="spring",
     if edge_style is None:
         edge_style = {}
 
-    art = NXArtist(graph, layout, node_style, edge_style)
+    art = NXArtist(graph, layout, node_style, edge_style,
+                   node_label_style, edge_label_style)
     ax.add_artist(art)
     art._reprocess()
     ax.update_datalim(art.get_datalim())
