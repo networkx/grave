@@ -22,12 +22,12 @@ section "Script section"
 #cd $NX_INSTALL
 #printenv PWD
 
-# Run nosetests.
+# Run pytests.
 if [[ "${REPORT_COVERAGE}" == 1 ]]; then
-  pytest-cov --cov=grave
-  cp -a .coverage $NX_SOURCE
+  pytest --cov=grave
+#  cp -a .coverage $NX_SOURCE
 else
-  pytest-cov
+  pytest
 fi
 
 #cd $NX_SOURCE

@@ -11,6 +11,17 @@ cache:
 
 matrix:
   include:
+    - os: linux
+      python: 3.6
+      env:
+      - REPORT_COVERAGE=1
+      - BUILD_DOCS=1
+      addons:
+        apt:
+          packages:
+          - texlive
+          - texlive-latex-extra
+          - latexmk
     - os: osx
       language: generic
       env: TRAVIS_PYTHON_VERSION=3.6
@@ -33,10 +44,6 @@ install:
   # install required packages
   - pip install --upgrade pip
   - pip install --retries 3 ${PIP_FLAGS} -r requirements.txt
-#  - pip install --retries 3 ${PIP_FLAGS} -r requirements/doc.txt
-#  - if [[ "${OPTIONAL_DEPS}" == 1 ]]; then
-#      pip install --retries 3 ${PIP_FLAGS} -r requirements/extras.txt;
-#    fi
   # install grave
   - printenv PWD
   - pip install .
@@ -49,17 +56,11 @@ script:
       source tools/travis/build_docs.sh;
     fi
   - source tools/travis/script.sh
-#  - python setup.py test
-#  - cd doc
-#  - make html
 
 after_success:
-#  - if [[ "${REPORT_COVERAGE}" == 1 ]]; then
-#      codecov;
-#    fi
-#  - if [[ "${BUILD_DOCS}" == 1 && "${DEPLOY_DOCS}" == 1 ]]; then
-#      source tools/travis/deploy_docs.sh;
-#    fi
+  - if [[ "${REPORT_COVERAGE}" == 1 ]]; then
+      codecov;
+    fi
 
 notifications:
   email: false
