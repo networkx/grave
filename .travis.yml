@@ -42,7 +42,7 @@ install:
   # install required packages
   - pip install --upgrade pip
   - pip install --retries 3 ${PIP_FLAGS} -r requirements.txt
-  - pip install --retries 3 ${PIP_FLAGS} -r doc/doc-requirements.txt
+  - pip install --retries 3 ${PIP_FLAGS} -r requirements/doc.txt
 #  - if [[ "${OPTIONAL_DEPS}" == 1 ]]; then
 #      pip install --retries 3 ${PIP_FLAGS} -r requirements/extras.txt;
 #    fi
