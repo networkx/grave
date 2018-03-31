@@ -85,12 +85,12 @@ def apply_style(style, item_iterable, default):
 def generate_node_styles(network, node_style):
     # dict of node id -> node_style_dict
     return apply_style(node_style,
-                       network.nodes.data(),
+                       network.nodes.items(),
                        default_node_style)
 
 
 def generate_edge_styles(network, edge_style):
     # dict of edge tuple -> edge_style_dict
     return apply_style(edge_style,
-                       (((u, v), d) for u, v, d in network.edges.data()),
+                       network.edges.items(),
                        default_edge_style)
