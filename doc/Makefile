@@ -18,3 +18,10 @@ help:
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+
+gitwash-update:
+	python ../tools/gitwash_dumper.py developer grave \
+	--project-url=http://grave.readthedocs.io/en/latest/ \
+	--project-ml-url=http://groups.google.com/group/networkx-discuss/ \
+	--gitwash-url git@github.com:matthew-brett/gitwash.git

@@ -6,6 +6,7 @@ GraVE - Dead simple graph visualization
    :caption: Contents:
 
    api
+   developer/index
    gallery/index
    notes
 
