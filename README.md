@@ -8,7 +8,10 @@
                 </a>
                 <a href='http://grave.readthedocs.io/en/latest/?badge=latest'>
                     <img src='http://readthedocs.org/projects/grave/badge/?version=latest' alt='Documentation Status'>
-                </a>   
+                </a>
+                <a href='https://codecov.io/gh/networkx/grave'>
+                    <img src='https://codecov.io/gh/networkx/grave/branch/master/graph/badge.svg' alt='Test coverage'>
+                </a>  
             </td>
             <td align="center">
                 <img src="https://github.com/networkx/grave/raw/master/doc/default.png" width=50%><br>
