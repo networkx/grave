@@ -3,8 +3,8 @@ Notes from GraphXD sprints
 
 Also see the example folder for concrete code
 
-From discussions with Nelle Varoquex, Aric, and Dan Shult
----------------------------------------------------------
+From discussions with Nelle Varoquaux, Aric Hagberg, and Dan Schult
+-------------------------------------------------------------------
 
 - restrict to 'small' networks (few hundred to thousand)
 - there are many choices in plotting mapping graph attributes -> visual properties
