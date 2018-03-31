@@ -1,8 +1,8 @@
 """
-GraVE Documentation
--------------------
+Labeled 2D Grid
+---------------
 
-Test of Labels and Layout
+This example shows both labels and custom layout.
 """
 import networkx as nx
 import matplotlib.pyplot as plt

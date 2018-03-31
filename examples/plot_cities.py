@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """
-===========
-Knuth Miles
-===========
+======
+Cities
+======
 
 `miles_graph()` returns an undirected graph over the 128 US cities from
 the datafile `miles_dat.txt`. The cities each have location and population
