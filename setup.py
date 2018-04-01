@@ -1,13 +1,13 @@
 from setuptools import setup
 from setuptools import find_packages
 
-setup(name = "GraVE",
+setup(name = "Grave",
       version = "0.0.1",
       description = "Dead simple graph visualization",
-      long_description = "GraVE is a Graph Visualization Package "\
+      long_description = "Grave is a Graph Visualization Package "\
                          "combining ideas from Matplotlib and NetworkX",
       url = "http://github.com/networkx/grave",
-      author = "NetworkX Developers",
+      author = "Grave Developers",
       author_email = "networkx-discuss@googlegroups.com",
       license = "BSD",
       packages = find_packages(),
