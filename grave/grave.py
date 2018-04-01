@@ -4,6 +4,7 @@ import numpy as np
 from matplotlib.collections import LineCollection, PathCollection
 from matplotlib.markers import MarkerStyle
 from matplotlib.artist import Artist
+from matplotlib.text import Text
 
 from ._layout import _apply_layout
 from .style import (generate_node_styles,
@@ -117,12 +118,11 @@ def _generate_node_labels(pos, styles, *, ax):
         else:
             label = str(node)    # this makes "1" and 1 the same
 
-        node_labels_dict[node] = ax.text(x, y,
-                                         label,
-                                         transform=ax.transData,
-                                         clip_on=True,
-                                         **properties)
-    ax.autoscale_view()
+        node_labels_dict[node] = Text(x, y,
+                                      label,
+                                      transform=ax.transData,
+                                      clip_on=True,
+                                      **properties)
     return node_labels_dict
 
 
@@ -171,14 +171,13 @@ def _generate_edge_labels(pos, styles, *, ax):
         else:
             trans_angle = 0.0
 
-        edge_labels_dict[edge] = ax.text(x, y,
-                                         label,
-                                         rotation=trans_angle,
-                                         transform=ax.transData,
-                                         clip_on=True,
-                                         zorder=1,
-                                         **properties)
-    ax.autoscale_view()
+        edge_labels_dict[edge] = Text(x, y,
+                                      label,
+                                      rotation=trans_angle,
+                                      transform=ax.transData,
+                                      clip_on=True,
+                                      zorder=1,
+                                      **properties)
     return edge_labels_dict
 
 
@@ -305,7 +304,7 @@ class NXArtist(Artist):
         if edge_label_style is not None:
             elabel_style_dict = generate_edge_label_styles(graph,
                                                            edge_label_style)
-            self._edge_label_artist = (
+            self._edge_label_dict = (
                 _generate_edge_labels(pos, elabel_style_dict, ax=self.axes))
 
         # TODO sort out all of the things that need to be forwarded
