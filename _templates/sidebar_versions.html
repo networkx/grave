@@ -1,0 +1,38 @@
+{%- block versions %}
+<div class="sidebarblock">
+        <h1>Grave</h1>
+
+        <div class="tile">
+                <h4>Stable (<a href="https://networkx.github.io/grave/stable/news.html#grave-0-1">notes</a>)</h4>
+        0.1 — TBD<br/>
+        <a href="http://pypi.python.org/pypi/grave/0.1">download</a> | <a href="https://networkx.github.io/grave/stable/">doc</a> | <a href="https://networkx.github.io/grave/stable/_downloads/grave.pdf">pdf</a>
+        </div>
+	</br>
+
+        <div class="tile">
+                <h4>Latest (<a href="https://networkx.github.io/grave/latest/release/release_dev.html">notes</a>)</h4>
+        0.1 development<br/>
+        <a href="https://github.com/networkx/grave">github</a> | <a href="https://networkx.github.io/grave/latest/">doc</a> | <a href="https://networkx.github.io/grave/latest/_downloads/grave.pdf">pdf</a>
+	</div>
+        </br>
+
+	<div class="tile">
+	    <h4><a id="other">Archive</a></h4>
+
+            <ul id="versionList" style="display: none;">
+                <script src="_static/docversions.js"></script>
+                <script type="text/javascript">
+                    insert_version_links();
+                </script>
+            </ul>
+
+	<script type="text/javascript">
+	    $("#other").click(function() {
+		$("#versionList").toggle();
+	});
+        </script>
+    </div>
+    </br>
+    
+</div>
+{%- endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% set title = 'Grave' %}
+{% block body %}
+
+
+<h2>Dead simple graph visualization</h2>
+
+<table align="left" style="margin-left: 0px">
+<tr>
+  <td width="60%">
+<blockquote>
+<p>Grave is a graph visualization package combining ideas from Matplotlib, NetworkX, and seaborn. Its goal is to provide a network drawing API that covers the most use cases with sensible defaults and simple style configuration.</p>
+</blockquote>
+  </td>
+    <td width="40%">
+    <div id="chart"></div>
+    <img src="_static/default.svg"><br>
+</td></tr>
+</table>
+
+<h4>Features</h4>
+<ul class="simple">
+<li> Supports drawing graphs from NetworkX</li>
+<li> Open source <a href="https://raw.githubusercontent.com/networkx/grave/master/LICENSE">3-clause BSD license</a> </li>
+</ul>
+{% endblock %}
