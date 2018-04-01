@@ -1,5 +1,5 @@
-The GraVE API
-=============
+Reference
+=========
 
 Basic Plotting
 --------------

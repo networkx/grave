@@ -1,4 +1,4 @@
-GraVE - Dead simple graph visualization
+Grave---Dead simple graph visualization
 =======================================
 
 .. toctree::
@@ -7,10 +7,11 @@ GraVE - Dead simple graph visualization
 
    api
    developer/index
+   license
    gallery/index
 
 Indices and tables
-==================
+------------------
 
 * :ref:`genindex`
 * :ref:`modindex`
