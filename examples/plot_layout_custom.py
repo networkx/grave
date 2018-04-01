@@ -2,8 +2,8 @@
 Using a custom layout
 =====================
 
-The default layouts available through GraVE may not be sufficient for ones
-need. Hence, GraVE also support custom layouts.
+The default layouts available through Grave may not be sufficient for ones
+need. Hence, Grave also support custom layouts.
 
 
 """

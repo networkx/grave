@@ -20,7 +20,7 @@
     </table>
 </div>
 
-GraVE is a Graph Visualization Package combining ideas from
+Grave is a Graph Visualization Package combining ideas from
 Matplotlib, NetworkX, and seaborn. Its goal is to provide a
 network drawing API that covers the most use cases with sensible
 defaults and simple style configuration. Currently, it supports
