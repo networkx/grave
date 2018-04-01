@@ -6,6 +6,9 @@
                 <a href="https://travis-ci.org/networkx/grave">
                     <img src="https://travis-ci.org/networkx/grave.svg?branch=master"><br>
                 </a>
+                <a href="https://ci.appveyor.com/project/networkx/grave">
+                    <img src="https://ci.appveyor.com/api/projects/status/github/networkx/grave?branch=master&svg=true"><br>
+                </a>
                 <a href='http://grave.readthedocs.io/en/latest/?badge=latest'>
                     <img src='http://readthedocs.org/projects/grave/badge/?version=latest' alt='Documentation Status'>
                 </a>
