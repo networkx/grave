@@ -8,7 +8,6 @@ GraVE - Dead simple graph visualization
    api
    developer/index
    gallery/index
-   notes
 
 Indices and tables
 ==================
