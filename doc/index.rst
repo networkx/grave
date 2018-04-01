@@ -5,6 +5,7 @@ Grave---Dead simple graph visualization
    :maxdepth: 2
    :caption: Contents:
 
+   install
    api
    developer/index
    license
