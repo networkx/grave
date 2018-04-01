@@ -1,8 +1,8 @@
 from setuptools import setup
 from setuptools import find_packages
 
-setup(name = "Grave",
-      version = "0.0.1",
+setup(name = "grave",
+      version = "0.1",
       description = "Dead simple graph visualization",
       long_description = "Grave is a Graph Visualization Package "\
                          "combining ideas from Matplotlib and NetworkX",
