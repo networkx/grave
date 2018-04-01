@@ -42,7 +42,9 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
     'sphinx_gallery.gen_gallery',
-    'numpydoc'
+    'numpydoc',
+    'nb2plots',
+    'texext',
 ]
 
 autosummary_generate = True
@@ -210,3 +212,7 @@ intersphinx_mapping = {
     'sphinx': ('http://www.sphinx-doc.org/en/stable', None),
     'networkx': ('https://networkx.github.io/', None),
 }
+
+# Add the 'copybutton' javascript, to hide/show the prompt in code examples
+def setup(app):
+    app.add_javascript('copybutton.js')

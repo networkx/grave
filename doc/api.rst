@@ -12,7 +12,6 @@ Basic Plotting
   
   
   plot_network
-  style_merger
   
   
 Styling your plot
@@ -28,5 +27,4 @@ Styling your plot
   apply_style
   generate_node_styles
   generate_edge_styles
-  
-  
+  style_merger 
