@@ -71,6 +71,8 @@ def _generate_node_artist(pos, styles, *, ax):
 
 def _generate_straight_edges(edges, pos, styles, *, ax):
     N = len(edges)
+    if not N:
+        return None, None
     proto_edge = next(iter(edges))
     edge_pos = [None] * N
     edge_indx = [None] * N
@@ -84,7 +86,7 @@ def _generate_straight_edges(edges, pos, styles, *, ax):
         edge_indx[j] = (u, v)
     key_map = {'color': 'colors',
                'width': 'linewidths',
-               'style': 'linestyle'}
+               'style': 'linestyle',}
 
     renamed_properties = {key_map[k]: v
                           for k, v in properties.items()}
