@@ -26,6 +26,11 @@ NetworkX, and seaborn. Its goal is to provide a network drawing API that
 covers the most use cases with sensible defaults and simple style
 configuration. Currently, it supports drawing graphs from NetworkX.
 
+- **Website (including documentation):** https://networkx.github.io/grave/
+- **Mailing list:** https://groups.google.com/forum/#!forum/networkx-discuss
+- **Source:** https://github.com/networkx/grave
+- **Bug reports:** https://github.com/networkx/grave/issues
+
 Example
 -------
 
@@ -62,3 +67,8 @@ The result:
     :width: 700
     :align: center
     :alt: Coloring the minimum weighted dominating set of a graph
+
+License
+-------
+
+Released under the 3-Clause BSD license (see `LICENSE`).

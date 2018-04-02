@@ -36,7 +36,7 @@ Install the development version
 -------------------------------
 
 If you have `Git <https://git-scm.com/>`_ installed on your system, it is also
-possible to install the development version of ``networkx``.
+possible to install the development version of ``grave``.
 
 Before installing the development version, you may need to uninstall the
 standard version of ``grave`` using ``pip``::

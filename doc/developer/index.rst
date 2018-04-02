@@ -8,4 +8,5 @@ Developer Guide
 
    contribute
    gitwash/index
+   release
    notes
