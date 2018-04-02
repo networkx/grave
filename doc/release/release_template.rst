@@ -1,5 +1,5 @@
-Announcement: Grave 0.X
-=======================
+Grave 0.X
+=========
 
 We're happy to announce the release of Grave 0.X!
 Grave is a graph visualization package combining ideas from Matplotlib,
