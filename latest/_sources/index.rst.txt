@@ -46,4 +46,5 @@ Contents
     api
     developer/index
     license
+    release/index
     gallery/index

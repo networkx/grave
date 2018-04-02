@@ -52,7 +52,7 @@ Grave Documentation
                  edge_style=use_attributes('color'))
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  0.065 seconds)
+**Total running time of the script:** ( 0 minutes  0.136 seconds)
 
 
 
