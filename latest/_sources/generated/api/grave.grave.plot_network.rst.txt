@@ -1,0 +1,12 @@
+grave.grave.plot_network
+========================
+
+.. currentmodule:: grave.grave
+
+.. autofunction:: plot_network
+
+.. include:: ../backreferences/grave.grave.plot_network.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

@@ -1,0 +1,159 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Install &#8212; Grave  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Reference" href="api.html" />
+    <link rel="prev" title="Grave—Dead simple graph visualization" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="install">
+<h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
+<p>NetworkX requires Python 3.4, 3.5, or 3.6.  If you do not already
+have a Python environment configured on your computer, please see the
+instructions for installing the full <a class="reference external" href="https://scipy.org/install.html">scientific Python stack</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are on Windows and want to install optional packages (e.g., <cite>scipy</cite>),
+then you will need to install a Python distribution such as
+<a class="reference external" href="https://www.anaconda.com/download/">Anaconda</a>,
+<a class="reference external" href="https://www.enthought.com/product/canopy">Enthought Canopy</a>,
+<a class="reference external" href="http://python-xy.github.io/">Python(x,y)</a>,
+<a class="reference external" href="https://winpython.github.io/">WinPython</a>, or
+<a class="reference external" href="http://www.pyzo.org/">Pyzo</a>.
+If you use one of these Python distribution, please refer to their online
+documentation.</p>
+</div>
+<p>Below we assume you have the default Python environment already configured on
+your computer and you intend to install <code class="docutils literal notranslate"><span class="pre">grave</span></code> inside of it.  If you want
+to create and work with Python virtual environments, please follow instructions
+on <a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a> and <a class="reference external" href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">virtual
+environments</a>.</p>
+<p>First, make sure you have the latest version of <code class="docutils literal notranslate"><span class="pre">pip</span></code> (the Python package manager)
+installed. If you do not, refer to the <a class="reference external" href="https://pip.pypa.io/en/stable/installing/">Pip documentation</a> and install <code class="docutils literal notranslate"><span class="pre">pip</span></code> first.</p>
+<div class="section" id="install-the-released-version">
+<h2>Install the released version<a class="headerlink" href="#install-the-released-version" title="Permalink to this headline">¶</a></h2>
+<p>To be added.</p>
+</div>
+<div class="section" id="install-the-development-version">
+<h2>Install the development version<a class="headerlink" href="#install-the-development-version" title="Permalink to this headline">¶</a></h2>
+<p>If you have <a class="reference external" href="https://git-scm.com/">Git</a> installed on your system, it is also
+possible to install the development version of <code class="docutils literal notranslate"><span class="pre">networkx</span></code>.</p>
+<p>Before installing the development version, you may need to uninstall the
+standard version of <code class="docutils literal notranslate"><span class="pre">grave</span></code> using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip uninstall grave
+</pre></div>
+</div>
+<p>Then do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/networkx/grave.git
+$ cd grave
+$ pip install -e .
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> command allows you to follow the development branch as
+it changes by creating links in the right places and installing the command
+line scripts to the appropriate locations.</p>
+<p>Then, if you want to update <code class="docutils literal notranslate"><span class="pre">grave</span></code> at any time, in the same directory do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git pull
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Grave</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-the-released-version">Install the released version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-the-development-version">Install the development version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/index.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery/index.html">Gallery</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Grave—Dead simple graph visualization</a></li>
+      <li>Next: <a href="api.html" title="next chapter">Reference</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Grave developers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/install.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,282 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Developer overview &#8212; Grave  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Working with grave source code" href="gitwash/index.html" />
+    <link rel="prev" title="Developer Guide" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="developer-overview">
+<h1>Developer overview<a class="headerlink" href="#developer-overview" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p class="first">If you are a first-time contributor:</p>
+<ul>
+<li><p class="first">Go to <a class="reference external" href="https://github.com/networkx/grave">https://github.com/networkx/grave</a> and click the
+“fork” button to create your own copy of the project.</p>
+</li>
+<li><p class="first">Clone the project to your local computer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">your</span><span class="o">-</span><span class="n">username</span><span class="o">/</span><span class="n">grave</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add the upstream repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">upstream</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">networkx</span><span class="o">/</span><span class="n">grave</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now, you have remote repositories named:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">upstream</span></code>, which refers to the <code class="docutils literal notranslate"><span class="pre">networkx/grave</span></code> repository</li>
+<li><code class="docutils literal notranslate"><span class="pre">origin</span></code>, which refers to your personal fork</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first">Develop your contribution:</p>
+<ul>
+<li><p class="first">Pull the latest changes from upstream:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span>
+<span class="n">git</span> <span class="n">pull</span> <span class="n">upstream</span> <span class="n">master</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create a branch for the feature you want to work on. Since the
+branch name will appear in the merge message, use a sensible name
+such as ‘bugfix-for-issue-1480’:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">bugfix</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">issue</span><span class="o">-</span><span class="mi">1480</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Commit locally as you progress (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>)</p>
+</li>
+</ul>
+</li>
+<li><p class="first">To submit your contribution:</p>
+<ul>
+<li><p class="first">Push your changes back to your fork on GitHub:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">bugfix</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">issue</span><span class="o">-</span><span class="mi">1480</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Go to GitHub. The new branch will show up with a green Pull Request
+button—click it.</p>
+</li>
+<li><p class="first">If you want, post on the <a class="reference external" href="http://groups.google.com/group/networkx-discuss">mailing list</a> to explain your changes or
+to ask for review.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>For a more detailed discussion, read these <a class="reference internal" href="gitwash/index.html"><span class="doc">detailed documents</span></a> on how to use Git with <code class="docutils literal notranslate"><span class="pre">grave</span></code>
+(<a class="reference external" href="http://grave.readthedocs.io/en/latest/developer/gitwash/index.html">http://grave.readthedocs.io/en/latest/developer/gitwash/index.html</a>).</p>
+<ol class="arabic" start="4">
+<li><p class="first">Review process:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Reviewers (the other developers and interested community members) will
+write inline and/or general comments on your Pull Request (PR) to help
+you improve its implementation, documentation, and style.  Every single
+developer working on the project has their code reviewed, and we’ve come
+to see it as friendly conversation from which we all learn and the
+overall code quality benefits.  Therefore, please don’t let the review
+discourage you from contributing: its only aim is to improve the quality
+of project, not to criticize (we are, after all, very grateful for the
+time you’re donating!).</li>
+<li>To update your pull request, make your changes on your local repository
+and commit. As soon as those changes are pushed up (to the same branch as
+before) the pull request will update automatically.</li>
+<li><a class="reference external" href="https://travis-ci.org/">Travis-CI</a>, a continuous integration service,
+is triggered after each Pull Request update to build the code and run unit
+tests of your branch. The Travis tests must pass before your PR can be merged.
+If Travis fails, you can find out why by clicking on the “failed” icon (red
+cross) and inspecting the build and test log.</li>
+<li><a class="reference external" href="http://ci.appveyor.com">AppVeyor</a>, is another continuous integration
+service, which we use.  You will also need to make sure that the AppVeyor
+tests pass.</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If closing a bug, also add “Fixes #1480” where 1480 is the issue number.</p>
+</div>
+<div class="section" id="divergence-between-upstream-master-and-your-feature-branch">
+<h2>Divergence between <code class="docutils literal notranslate"><span class="pre">upstream</span> <span class="pre">master</span></code> and your feature branch<a class="headerlink" href="#divergence-between-upstream-master-and-your-feature-branch" title="Permalink to this headline">¶</a></h2>
+<p>Never merge the main branch into yours. If GitHub indicates that the
+branch of your Pull Request can no longer be merged automatically, rebase
+onto master:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span>
+<span class="n">git</span> <span class="n">pull</span> <span class="n">upstream</span> <span class="n">master</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">bugfix</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">issue</span><span class="o">-</span><span class="mi">1480</span>
+<span class="n">git</span> <span class="n">rebase</span> <span class="n">master</span>
+</pre></div>
+</div>
+<p>If any conflicts occur, fix the according files and continue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="n">conflict</span><span class="o">-</span><span class="n">file1</span> <span class="n">conflict</span><span class="o">-</span><span class="n">file2</span>
+<span class="n">git</span> <span class="n">rebase</span> <span class="o">--</span><span class="k">continue</span>
+</pre></div>
+</div>
+<p>However, you should only rebase your own branches and must generally not
+rebase any branch which you collaborate on with someone else.</p>
+<p>Finally, you must push your rebased branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">--</span><span class="n">force</span> <span class="n">origin</span> <span class="n">bugfix</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">issue</span><span class="o">-</span><span class="mi">1480</span>
+</pre></div>
+</div>
+<p>(If you are curious, here’s a further discussion on the
+<a class="reference external" href="http://tinyurl.com/lll385">dangers of rebasing</a>.
+Also see this <a class="reference external" href="http://tinyurl.com/nqcbkj">LWN article</a>.)</p>
+</div>
+<div class="section" id="guidelines">
+<h2>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>All code should have tests.</li>
+<li>All code should be documented, to the same
+<a class="reference external" href="https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt#docstring-standard">standard</a>
+as NumPy and SciPy.</li>
+<li>For new functionality, always add an example to the gallery.</li>
+<li>All changes are reviewed.  Ask on the
+<a class="reference external" href="http://groups.google.com/group/networkx-discuss">mailing list</a> if
+you get no response to your pull request.</li>
+</ul>
+</div>
+<div class="section" id="stylistic-guidelines">
+<h2>Stylistic Guidelines<a class="headerlink" href="#stylistic-guidelines" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Set up your editor to remove trailing whitespace.
+Follow <a class="reference external" href="www.python.org/dev/peps/pep-0008/">PEP08</a>.
+Check code with <cite>pyflakes</cite> / <cite>flake8</cite>.</p>
+</li>
+<li><p class="first">Use the following import conventions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">grave</span> <span class="k">as</span> <span class="nn">gve</span>
+
+<span class="n">cimport</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">cnp</span> <span class="c1"># in Cython code</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="pull-request-codes">
+<h2>Pull request codes<a class="headerlink" href="#pull-request-codes" title="Permalink to this headline">¶</a></h2>
+<p>When you submit a pull request to GitHub, GitHub will ask you for a summary.  If
+your code is not ready to merge, but you want to get feedback, please consider
+using <code class="docutils literal notranslate"><span class="pre">WIP:</span> <span class="pre">experimental</span> <span class="pre">optimization</span></code> or similar for the title of your pull
+request. That way we will all know that it’s not yet ready to merge and that
+you may be interested in more fundamental comments about design.</p>
+<p>When you think the pull request is ready to merge, change the title (using the
+<em>Edit</em> button) to remove the <code class="docutils literal notranslate"><span class="pre">WIP:</span></code>.</p>
+</div>
+<div class="section" id="bugs">
+<h2>Bugs<a class="headerlink" href="#bugs" title="Permalink to this headline">¶</a></h2>
+<p>Please <a class="reference external" href="https://github.com/networkx/grave/issues">report bugs on GitHub</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Grave</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Developer overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gitwash/index.html">Working with <em>grave</em> source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes.html">Notes from GraphXD sprints</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Developer Guide</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Developer Guide</a></li>
+      <li>Next: <a href="gitwash/index.html" title="next chapter">Working with <em>grave</em> source code</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Grave developers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/developer/contribute.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

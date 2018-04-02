@@ -1,0 +1,12 @@
+grave.style.generate_node_styles
+================================
+
+.. currentmodule:: grave.style
+
+.. autofunction:: generate_node_styles
+
+.. include:: ../backreferences/grave.style.generate_node_styles.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

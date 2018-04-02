@@ -1,0 +1,12 @@
+grave.style.apply_style
+=======================
+
+.. currentmodule:: grave.style
+
+.. autofunction:: apply_style
+
+.. include:: ../backreferences/grave.style.apply_style.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

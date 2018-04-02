@@ -1,0 +1,313 @@
+:orphan:
+
+Gallery
+-------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The simplest way to plot a graph ever. And yet it looks cool! ">
+
+.. only:: html
+
+    .. figure:: /gallery/images/thumb/sphx_glr_plot_basics_thumb.png
+
+        :ref:`sphx_glr_gallery_plot_basics.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/plot_basics
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="">
+
+.. only:: html
+
+    .. figure:: /gallery/images/thumb/sphx_glr_style_attr_thumb.png
+
+        :ref:`sphx_glr_gallery_style_attr.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/style_attr
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="">
+
+.. only:: html
+
+    .. figure:: /gallery/images/thumb/sphx_glr_plot_jarrod_graphxd_thumb.png
+
+        :ref:`sphx_glr_gallery_plot_jarrod_graphxd.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/plot_jarrod_graphxd
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="">
+
+.. only:: html
+
+    .. figure:: /gallery/images/thumb/sphx_glr_plot_dominators_thumb.png
+
+        :ref:`sphx_glr_gallery_plot_dominators.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/plot_dominators
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we show how to use another default Matplotlib style. ">
+
+.. only:: html
+
+    .. figure:: /gallery/images/thumb/sphx_glr_plot_defaults_thumb.png
+
+        :ref:`sphx_glr_gallery_plot_defaults.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/plot_defaults
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="">
+
+.. only:: html
+
+    .. figure:: /gallery/images/thumb/sphx_glr_sprint_notes_thumb.png
+
+        :ref:`sphx_glr_gallery_sprint_notes.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/sprint_notes
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The default layouts available through Grave may not be sufficient for ones need. Hence, Grave a...">
+
+.. only:: html
+
+    .. figure:: /gallery/images/thumb/sphx_glr_plot_layout_custom_thumb.png
+
+        :ref:`sphx_glr_gallery_plot_layout_custom.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/plot_layout_custom
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="">
+
+.. only:: html
+
+    .. figure:: /gallery/images/thumb/sphx_glr_sprint_notes2_thumb.png
+
+        :ref:`sphx_glr_gallery_sprint_notes2.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/sprint_notes2
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Grave supports different layouts by default. ">
+
+.. only:: html
+
+    .. figure:: /gallery/images/thumb/sphx_glr_plot_layout_thumb.png
+
+        :ref:`sphx_glr_gallery_plot_layout.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/plot_layout
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Test ">
+
+.. only:: html
+
+    .. figure:: /gallery/images/thumb/sphx_glr_plot_degrees_thumb.png
+
+        :ref:`sphx_glr_gallery_plot_degrees.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/plot_degrees
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="">
+
+.. only:: html
+
+    .. figure:: /gallery/images/thumb/sphx_glr_plot_use_attributes_centrality_thumb.png
+
+        :ref:`sphx_glr_gallery_plot_use_attributes_centrality.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/plot_use_attributes_centrality
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows both labels and custom layout. ">
+
+.. only:: html
+
+    .. figure:: /gallery/images/thumb/sphx_glr_plot_grid_thumb.png
+
+        :ref:`sphx_glr_gallery_plot_grid.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/plot_grid
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Run this with an interactive matplotlib backend!">
+
+.. only:: html
+
+    .. figure:: /gallery/images/thumb/sphx_glr_node_picking_thumb.png
+
+        :ref:`sphx_glr_gallery_node_picking.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/node_picking
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="`miles_graph()` returns an undirected graph over the 128 US cities from the datafile `miles_dat...">
+
+.. only:: html
+
+    .. figure:: /gallery/images/thumb/sphx_glr_plot_cities_thumb.png
+
+        :ref:`sphx_glr_gallery_plot_cities.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/plot_cities
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+
+
+.. only :: html
+
+ .. container:: sphx-glr-footer
+
+
+  .. container:: sphx-glr-download
+
+    :download:`Download all examples in Python source code: gallery_python.zip <//home/travis/build/networkx/grave/doc/gallery/gallery_python.zip>`
+
+
+
+  .. container:: sphx-glr-download
+
+    :download:`Download all examples in Jupyter notebooks: gallery_jupyter.zip <//home/travis/build/networkx/grave/doc/gallery/gallery_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.readthedocs.io>`_

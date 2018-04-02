@@ -1,0 +1,12 @@
+grave.style.generate_edge_styles
+================================
+
+.. currentmodule:: grave.style
+
+.. autofunction:: generate_edge_styles
+
+.. include:: ../backreferences/grave.style.generate_edge_styles.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

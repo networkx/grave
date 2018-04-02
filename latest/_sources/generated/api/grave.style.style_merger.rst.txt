@@ -1,0 +1,12 @@
+grave.style.style_merger
+========================
+
+.. currentmodule:: grave.style
+
+.. autofunction:: style_merger
+
+.. include:: ../backreferences/grave.style.style_merger.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>
