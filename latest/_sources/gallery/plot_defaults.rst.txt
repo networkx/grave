@@ -46,7 +46,7 @@ In this example, we show how to use another default Matplotlib style.
                        labelleft=False)
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  0.195 seconds)
+**Total running time of the script:** ( 0 minutes  0.108 seconds)
 
 
 

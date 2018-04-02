@@ -40,7 +40,7 @@ Grave Documentation
                  node_style=use_attributes())
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  0.095 seconds)
+**Total running time of the script:** ( 0 minutes  0.053 seconds)
 
 
 

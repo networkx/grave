@@ -48,7 +48,7 @@ Test
                  edge_style=pathological_edge_style)
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  0.090 seconds)
+**Total running time of the script:** ( 0 minutes  0.050 seconds)
 
 
 

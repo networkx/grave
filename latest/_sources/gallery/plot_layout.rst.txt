@@ -45,7 +45,7 @@ Grave supports different layouts by default.
 
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  0.244 seconds)
+**Total running time of the script:** ( 0 minutes  0.137 seconds)
 
 
 

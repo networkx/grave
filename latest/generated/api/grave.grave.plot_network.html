@@ -47,6 +47,13 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
 <dt><strong>graph</strong> <span class="classifier-delimiter">:</span> <span class="classifier">networkx graph object</span></dt>
 <dd></dd>
+<dt><strong>layout</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string or callable, optional, default: “spring”</span></dt>
+<dd><p class="first last">Specifies the type of layout to use for plotting.
+It must be one of “spring”, “circular”, “random”, “kamada_kawai”,
+“shell”, “spectral”, or a callable.
+If a callable is given, it is used to compute the 2D coordinates from
+the graph object, and should return a FIXME.</p>
+</dd>
 </dl>
 </td>
 </tr>

@@ -44,7 +44,7 @@ Grave Documentation
     plt.axes().set_aspect('equal')
     plt.axis('off')
 
-**Total running time of the script:** ( 0 minutes  0.191 seconds)
+**Total running time of the script:** ( 0 minutes  0.102 seconds)
 
 
 
