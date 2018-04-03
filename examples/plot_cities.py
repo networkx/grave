@@ -101,7 +101,7 @@ if __name__ == '__main__':
 
     def elabel_base_style(attr):
         return {'font_size': 4,
-                'font_weight': .1,
+                'font_weight': 'bold',
                 'font_family': 'sans-serif',
                 'font_color': 'b',
                 'rotate': True,  # TODO: make rotation less granular
@@ -113,7 +113,7 @@ if __name__ == '__main__':
     grave.plot_network(H, transfer_G_layout,
                        node_style=dict(node_size=20),
                        edge_label_style=elabel_style,
-                       node_label_style={})
+                       node_label_style={'font_weight': 'bold'})
 
     # scale the axes equally
     plt.xlim(-5000, 500)

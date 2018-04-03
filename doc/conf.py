@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# GraVE documentation build configuration file, created by
+# Grave documentation build configuration file, created by
 # sphinx-quickstart on Wed Mar 28 22:56:04 2018.
 #
 # This file is execfile()d with the current directory set to its
@@ -35,7 +35,6 @@ import sys
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon',
     'sphinx.ext.autosummary',
     'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
@@ -43,7 +42,9 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
     'sphinx_gallery.gen_gallery',
-    'numpydoc'
+    'numpydoc',
+    'nb2plots',
+    'texext',
 ]
 
 autosummary_generate = True
@@ -61,9 +62,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'GraVE'
-copyright = '2018, GraVE developers'
-author = 'GraVE developers'
+project = 'Grave'
+copyright = '2018, Grave developers'
+author = 'Grave developers'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -84,7 +85,8 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.ipynb_checkpoints']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.ipynb_checkpoints',
+                    'release_template.rst']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -130,7 +132,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'GraVEdoc'
+htmlhelp_basename = 'Gravedoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -157,8 +159,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'GraVE.tex', 'GraVE Documentation',
-     'GraVE developers', 'manual'),
+    (master_doc, 'grave.tex', 'Grave Documentation',
+     'Grave developers', 'manual'),
 ]
 
 
@@ -167,7 +169,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'grave', 'GraVE Documentation',
+    (master_doc, 'grave', 'Grave Documentation',
      [author], 1)
 ]
 
@@ -178,8 +180,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'GraVE', 'GraVE Documentation',
-     author, 'GraVE', 'One line description of project.',
+    (master_doc, 'Grave', 'Grave Documentation',
+     author, 'Grave', 'Dead simple graph visualization.',
      'Miscellaneous'),
 ]
 
@@ -211,3 +213,8 @@ intersphinx_mapping = {
     'sphinx': ('http://www.sphinx-doc.org/en/stable', None),
     'networkx': ('https://networkx.github.io/', None),
 }
+
+
+# Add the 'copybutton' javascript, to hide/show the prompt in code examples
+def setup(app):
+    app.add_javascript('copybutton.js')
