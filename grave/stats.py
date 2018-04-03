@@ -31,20 +31,20 @@ def _optional_dependency(dependency):
 def plot_adjacency_matrix(network,
                           node_labels=None,
                           label_behavior=None,
-						  weighted=False,
+                          weighted=False,
                           frame=True,
                           xtickrotation=70,
                           ytickrotation=0,
-						  *, ax,
-						  **heatmap_kwargs):
+                          *, ax,
+                          **heatmap_kwargs):
     '''Plot the adjacency matrix of a network. If weight is True, 
-	use a `weight` attribute from the edges to plot a heatmap of weights.
+    use a `weight` attribute from the edges to plot a heatmap of weights.
 
     Requires seaborn to be installed.
     Extra keyword parameters are passed on to seaborn's `heatmap` function.
-	
-	Parameters
-	----------
+
+    Parameters
+    ----------
 
     network : networkx graph object
     node_labels : callable, "auto", int, or iterable, optional
@@ -63,7 +63,7 @@ def plot_adjacency_matrix(network,
  
     Returns
     -------
-	The matplotlib axes.
+    The matplotlib axes.
     '''
     from seaborn import heatmap
     import pandas as pd
@@ -115,9 +115,9 @@ def plot_adjacency_matrix(network,
         if missing_weight > 0:
             n_edges = network.number_of_edges()
             warnings.warn('{missing} of {n_edges}'
-						  ' edges missing weight attr,'
-						  ' using 0 for them.'.format(missing=missing_weight,
-													  n_edges=n_edges))
+                          ' edges missing weight attr,'
+                          ' using 0 for them.'.format(missing=missing_weight,
+                                                      n_edges=n_edges))
     else:
         adj_mat = nx.adj_matrix(network).todense()
         cmap = plt.get_cmap('binary')
