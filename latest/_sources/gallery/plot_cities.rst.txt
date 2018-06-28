@@ -1,4 +1,8 @@
+.. note::
+    :class: sphx-glr-download-link-note
 
+    Click :ref:`here <sphx_glr_download_gallery_plot_cities.py>` to download the full example code
+.. rst-class:: sphx-glr-example-title
 
 .. _sphx_glr_gallery_plot_cities.py:
 
@@ -27,17 +31,19 @@ References.
 
 
 .. image:: /gallery/images/sphx_glr_plot_cities_001.png
-    :align: center
+    :class: sphx-glr-single-img
 
 
 .. rst-class:: sphx-glr-script-out
 
- Out::
+ Out:
+
+ .. code-block:: none
 
     Loaded miles_dat.txt containing 128 cities.
     digraph has 128 nodes with 8128 edges
     Subgraph has 6 nodes with 15 edges
-    ['San Diego, CA', 'Tucson, AZ', 'San Francisco, CA', 'Saint Augustine, FL', 'Worcester, MA', 'Spokane, WA']
+    ['Saint Augustine, FL', 'San Francisco, CA', 'Worcester, MA', 'San Diego, CA', 'Spokane, WA', 'Tucson, AZ']
 
 
 
@@ -148,13 +154,17 @@ References.
 
         plt.show()
 
-**Total running time of the script:** ( 0 minutes  0.120 seconds)
+**Total running time of the script:** ( 0 minutes  0.108 seconds)
 
+
+.. _sphx_glr_download_gallery_plot_cities.py:
 
 
 .. only :: html
 
  .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-example
+
 
 
   .. container:: sphx-glr-download

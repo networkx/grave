@@ -1,4 +1,8 @@
+.. note::
+    :class: sphx-glr-download-link-note
 
+    Click :ref:`here <sphx_glr_download_gallery_plot_use_attributes_centrality.py>` to download the full example code
+.. rst-class:: sphx-glr-example-title
 
 .. _sphx_glr_gallery_plot_use_attributes_centrality.py:
 
@@ -11,7 +15,7 @@ Grave Documentation
 
 
 .. image:: /gallery/images/sphx_glr_plot_use_attributes_centrality_001.png
-    :align: center
+    :class: sphx-glr-single-img
 
 
 
@@ -52,13 +56,17 @@ Grave Documentation
                  edge_style=use_attributes('color'))
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  0.072 seconds)
+**Total running time of the script:** ( 0 minutes  0.066 seconds)
 
+
+.. _sphx_glr_download_gallery_plot_use_attributes_centrality.py:
 
 
 .. only :: html
 
  .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-example
+
 
 
   .. container:: sphx-glr-download

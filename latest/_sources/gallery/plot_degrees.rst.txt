@@ -1,4 +1,8 @@
+.. note::
+    :class: sphx-glr-download-link-note
 
+    Click :ref:`here <sphx_glr_download_gallery_plot_degrees.py>` to download the full example code
+.. rst-class:: sphx-glr-example-title
 
 .. _sphx_glr_gallery_plot_degrees.py:
 
@@ -12,7 +16,7 @@ Test
 
 
 .. image:: /gallery/images/sphx_glr_plot_degrees_001.png
-    :align: center
+    :class: sphx-glr-single-img
 
 
 
@@ -48,13 +52,17 @@ Test
                  edge_style=pathological_edge_style)
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  0.050 seconds)
+**Total running time of the script:** ( 0 minutes  0.044 seconds)
 
+
+.. _sphx_glr_download_gallery_plot_degrees.py:
 
 
 .. only :: html
 
  .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-example
+
 
 
   .. container:: sphx-glr-download

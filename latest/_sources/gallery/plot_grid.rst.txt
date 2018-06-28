@@ -1,4 +1,8 @@
+.. note::
+    :class: sphx-glr-download-link-note
 
+    Click :ref:`here <sphx_glr_download_gallery_plot_grid.py>` to download the full example code
+.. rst-class:: sphx-glr-example-title
 
 .. _sphx_glr_gallery_plot_grid.py:
 
@@ -12,7 +16,7 @@ This example shows both labels and custom layout.
 
 
 .. image:: /gallery/images/sphx_glr_plot_grid_001.png
-    :align: center
+    :class: sphx-glr-single-img
 
 
 
@@ -59,13 +63,17 @@ This example shows both labels and custom layout.
 
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  0.043 seconds)
+**Total running time of the script:** ( 0 minutes  0.041 seconds)
 
+
+.. _sphx_glr_download_gallery_plot_grid.py:
 
 
 .. only :: html
 
  .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-example
+
 
 
   .. container:: sphx-glr-download

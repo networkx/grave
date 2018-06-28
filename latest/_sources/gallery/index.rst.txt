@@ -27,7 +27,7 @@ Gallery
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="">
+    <div class="sphx-glr-thumbcontainer" tooltip="Grave Documentation">
 
 .. only:: html
 
@@ -47,7 +47,7 @@ Gallery
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="">
+    <div class="sphx-glr-thumbcontainer" tooltip="Grave Documentation">
 
 .. only:: html
 
@@ -67,7 +67,7 @@ Gallery
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="">
+    <div class="sphx-glr-thumbcontainer" tooltip="Grave Documentation">
 
 .. only:: html
 
@@ -107,7 +107,7 @@ Gallery
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="">
+    <div class="sphx-glr-thumbcontainer" tooltip="Grave Documentation">
 
 .. only:: html
 
@@ -124,6 +124,26 @@ Gallery
    :hidden:
 
    /gallery/sprint_notes
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Grave Documentation">
+
+.. only:: html
+
+    .. figure:: /gallery/images/thumb/sphx_glr_sprint_notes2_thumb.png
+
+        :ref:`sphx_glr_gallery_sprint_notes2.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/sprint_notes2
 
 .. raw:: html
 
@@ -144,26 +164,6 @@ Gallery
    :hidden:
 
    /gallery/plot_layout_custom
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="">
-
-.. only:: html
-
-    .. figure:: /gallery/images/thumb/sphx_glr_sprint_notes2_thumb.png
-
-        :ref:`sphx_glr_gallery_sprint_notes2.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /gallery/sprint_notes2
 
 .. raw:: html
 
@@ -207,7 +207,7 @@ Gallery
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="">
+    <div class="sphx-glr-thumbcontainer" tooltip="Grave Documentation">
 
 .. only:: html
 
@@ -293,6 +293,7 @@ Gallery
 .. only :: html
 
  .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-gallery
 
 
   .. container:: sphx-glr-download
