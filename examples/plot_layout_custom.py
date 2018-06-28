@@ -33,3 +33,4 @@ def random_constrained_layout(networkx):
 
 fig, ax = plt.subplots()
 grave.plot_network(graph, ax=ax, layout=random_constrained_layout)
+plt.show()
