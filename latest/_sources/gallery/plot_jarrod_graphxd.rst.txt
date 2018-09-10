@@ -48,7 +48,7 @@ Grave Documentation
     plt.axes().set_aspect('equal')
     plt.axis('off')
 
-**Total running time of the script:** ( 0 minutes  0.025 seconds)
+**Total running time of the script:** ( 0 minutes  0.024 seconds)
 
 
 .. _sphx_glr_download_gallery_plot_jarrod_graphxd.py:
