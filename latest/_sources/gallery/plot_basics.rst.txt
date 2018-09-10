@@ -35,7 +35,7 @@ The simplest way to plot a graph ever. And yet it looks cool!
     # Plot it
     plot_network(graph)
 
-**Total running time of the script:** ( 0 minutes  0.054 seconds)
+**Total running time of the script:** ( 0 minutes  0.047 seconds)
 
 
 .. _sphx_glr_download_gallery_plot_basics.py:

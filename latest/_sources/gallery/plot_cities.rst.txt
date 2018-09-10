@@ -43,7 +43,7 @@ References.
     Loaded miles_dat.txt containing 128 cities.
     digraph has 128 nodes with 8128 edges
     Subgraph has 6 nodes with 15 edges
-    ['Saint Augustine, FL', 'San Francisco, CA', 'Worcester, MA', 'San Diego, CA', 'Spokane, WA', 'Tucson, AZ']
+    ['San Diego, CA', 'Saint Augustine, FL', 'Worcester, MA', 'Spokane, WA', 'San Francisco, CA', 'Tucson, AZ']
 
 
 
@@ -154,7 +154,7 @@ References.
 
         plt.show()
 
-**Total running time of the script:** ( 0 minutes  0.108 seconds)
+**Total running time of the script:** ( 0 minutes  0.117 seconds)
 
 
 .. _sphx_glr_download_gallery_plot_cities.py:
