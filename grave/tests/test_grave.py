@@ -4,7 +4,7 @@ import networkx as nx
 
 from grave import plot_network
 import matplotlib as mpl
-mpl.use('PS', warn=False)
+mpl.use('PS')
 
 import matplotlib.pyplot as plt
 plt.rcParams['text.usetex'] = False
