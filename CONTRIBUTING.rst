@@ -24,8 +24,8 @@ Developer overview
 
    * Pull the latest changes from upstream::
 
-      git checkout master
-      git pull upstream master
+      git checkout main
+      git pull upstream main
 
    * Create a branch for the feature you want to work on. Since the
      branch name will appear in the merge message, use a sensible name
@@ -82,17 +82,17 @@ For a more detailed discussion, read these :doc:`detailed documents
 
    If closing a bug, also add "Fixes #1480" where 1480 is the issue number.
 
-Divergence between ``upstream master`` and your feature branch
+Divergence between ``upstream main`` and your feature branch
 --------------------------------------------------------------
 
 Never merge the main branch into yours. If GitHub indicates that the
 branch of your Pull Request can no longer be merged automatically, rebase
-onto master::
+onto main::
 
-   git checkout master
-   git pull upstream master
+   git checkout main
+   git pull upstream main
    git checkout bugfix-for-issue-1480
-   git rebase master
+   git rebase main
 
 If any conflicts occur, fix the according files and continue::
 
