@@ -1,22 +1,22 @@
 Grave—dead simple graph visualization
 =====================================
 
-.. image:: https://travis-ci.org/networkx/grave.svg?branch=master
+.. image:: https://travis-ci.org/networkx/grave.svg?branch=main
    :target: https://travis-ci.org/networkx/grave
    :alt: Automated test status (Linux and MacOS)
 
-.. image:: https://ci.appveyor.com/api/projects/status/github/networkx/grave?branch=master&svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/github/networkx/grave?branch=main&svg=true
    :target: https://ci.appveyor.com/project/networkx/grave
    :alt: Automated test status (Windows)
 
-.. image:: https://codecov.io/gh/networkx/grave/branch/master/graph/badge.svg
+.. image:: https://codecov.io/gh/networkx/grave/branch/main/graph/badge.svg
   :target: https://codecov.io/gh/networkx/grave
   :alt: Test coverage
 
 .. GH breaks rendering of SVG from the repo, so we redirect through rawgit.com.
    GH ignores the width and align directives for PNGs.
 
-.. image:: https://rawgit.com/networkx/grave/master/doc/_static/default.svg
+.. image:: https://rawgit.com/networkx/grave/main/doc/_static/default.svg
    :width: 250px
    :align: right
    :alt: Logo
@@ -63,7 +63,7 @@ dominating set:
 
 The result:
 
-.. image:: https://rawgit.com/networkx/grave/master/doc/_static/dominators.svg
+.. image:: https://rawgit.com/networkx/grave/main/doc/_static/dominators.svg
     :width: 700
     :align: center
     :alt: Coloring the minimum weighted dominating set of a graph

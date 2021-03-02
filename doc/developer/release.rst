@@ -31,7 +31,7 @@ Making a new release of ``grave``
 
 - Push the new meta-data to github::
 
-   git push --tags upstream master
+   git push --tags upstream main
 
   (where ``upstream`` is the name of the
    ``github.com:networkx/networkx`` repository.)
