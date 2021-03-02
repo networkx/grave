@@ -1,5 +1,5 @@
-sphinx>=1.7.2
-sphinx-gallery>=0.1.13
-pillow>=5.0.0
+sphinx>=3.5.1
+sphinx-gallery>=0.8.2
+pillow>=8.1
 nb2plots>=0.6
-numpydoc>=0.8.0
+numpydoc>=1.1
