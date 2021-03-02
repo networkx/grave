@@ -1,4 +1,4 @@
-pytest>=3.5.0
-pytest-cov>=2.5.1
-pytest-runner>=4.2
-codecov>=2.0.15
+pytest>=6.2
+pytest-cov>=2.11
+pytest-runner>=5.3
+codecov>=2.1

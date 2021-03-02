@@ -1,17 +1,14 @@
 Grave—dead simple graph visualization
 =====================================
 
-.. image:: https://travis-ci.org/networkx/grave.svg?branch=main
-   :target: https://travis-ci.org/networkx/grave
-   :alt: Automated test status (Linux and MacOS)
+.. image:: https://img.shields.io/pypi/v/networkx.svg
+   :target: https://pypi.org/project/networkx/
 
-.. image:: https://ci.appveyor.com/api/projects/status/github/networkx/grave?branch=main&svg=true
-   :target: https://ci.appveyor.com/project/networkx/grave
-   :alt: Automated test status (Windows)
+.. image:: https://github.com/networkx/grave/workflows/test/badge.svg?branch=main
+     :target: https://github.com/networkx/grave/actions?query=workflow%3A%22test%22
 
 .. image:: https://codecov.io/gh/networkx/grave/branch/main/graph/badge.svg
-  :target: https://codecov.io/gh/networkx/grave
-  :alt: Test coverage
+      :target: https://app.codecov.io/gh/networkx/grave/branch/main
 
 .. GH breaks rendering of SVG from the repo, so we redirect through rawgit.com.
    GH ignores the width and align directives for PNGs.
