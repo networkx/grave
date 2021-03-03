@@ -8,5 +8,6 @@ Developer Guide
 
    contribute
    gitwash/index
+   ../code_of_conduct
    release
    notes
