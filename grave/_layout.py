@@ -17,4 +17,4 @@ def _apply_layout(layout, graph):
     elif isinstance(layout, str):
         return KNOWN_LAYOUTS[layout](graph)
     else:
-        raise ValueError("Dunno what do do with this")
+        raise ValueError("Dunno what to do with this")
